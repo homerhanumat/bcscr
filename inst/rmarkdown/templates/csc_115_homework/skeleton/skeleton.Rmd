@@ -1,0 +1,64 @@
+---
+title: "Sample Homework Document!"
+author: "Your Name Here!"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_float: true
+---
+
+**Caveat:** This document provides a convenient, worry-free format for writing up homework.  Of course you must modify it properly.  In particular you must delete any instructional material (such as this paragraph, for instance).  Also, don't forget to provide your own name and title in the YAML front matter.
+
+```{r setup, include = FALSE}
+# this is a good place for global chunk options, for example:
+# knitr::opts_chunk$set(fig.align = 'center, out.widt = "90%")
+
+# you should also load any packages that you need, for example:
+# library(ggplot2)
+```
+
+
+## Problem 1
+
+### Problem Statement
+
+Describe the problem briefly here.  (It may help to copy, paste and modify the problem as stated in the online textbook.)
+
+### My Solution
+
+Here's the code for my solution:
+
+```{r}
+manyCat <- function(word, n) {
+  wordWithNewLine <- paste(word, "\n")
+  message <- rep(wordWithNewLine, times = n)
+  cat(message)
+}
+```
+
+Let's test the function on a couple of examples.  To cat out `the string "Hello"` four times, we try: 
+
+```{r}
+manyCat(word = "Hello", n = 4)
+```
+
+To cat out `"Goodbye!"` twice, we try: 
+
+```{r}
+manyCat(word = "Goodbye!", n = 2)
+```
+
+## Problem 2
+
+### Problem Statement
+
+The problem statement goes here ...
+
+### Solution
+
+Your solution goes here ...
+
+
+
