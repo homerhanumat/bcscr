@@ -13,7 +13,7 @@ output:
 
 ```{r setup, include = FALSE}
 # this is a good place for global chunk options, for example:
-# knitr::opts_chunk$set(fig.align = 'center, out.widt = "90%")
+# knitr::opts_chunk$set(fig.align = 'center, out.width = "90%")
 
 # you should also load any packages that you need, for example:
 # library(ggplot2)
