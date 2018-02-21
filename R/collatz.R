@@ -48,9 +48,8 @@ collatz <- function(n, limit = 10000) {
   }
   plotTitle <- paste0("Collatz Sequence for n = ", initial)
   steps <- 1:howMany
-  p <- ggplot(mapping = aes(x = steps, y = numbers[1:howMany])) +
+  ggplot(mapping = aes(x = steps, y = numbers[1:howMany])) +
     geom_point() + geom_line() +
     labs( x = "Step", y = "Collatz Value at Step",
           title = plotTitle)
-  print(p)
 }
