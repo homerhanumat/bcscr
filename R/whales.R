@@ -174,11 +174,25 @@ Female$set("public",
 #' @return Object of \code{\link{R6Class}} with methods for simulation.
 #' @export
 #' @author Homer White \email{homerhanumat@gmail.com}
+#' @section Properties:
+#' \itemize{
+#' \item{\code{dimensions}: }{A vector of length two giving the
+#' dimensions of the ocean.}
+#' \item{\code{males}: }{A list of R6 objects of class Male
+#' containing the current population of male whales.}
+#' \item{\code{females}: }{A list of R6 objects of class Female
+#' containing the current population of female whales.}
+#' \item{\code{malePop}: }{Current number of males in the population.}
+#' \item{\code{femalePop}: }{Current number of females in the population.}
+#' \item{\code{starveParameter}: }{Helps determine probability for each
+#' whale to die by starvation in the current generation.}
+#' \item{\code{distance}: }{Computes distance between any two whales.}
+#' }
 #' @section Methods:
 #' \itemize{
 #' \item{\code{new}: }{Instantiates an Ocean object.  Parameters are:}
 #' \itemize{
-#' \item{\code{dims}: }{A numeric vector of length 2 giving the length
+#' \item{\code{dims}: }{A numeric vector of length 2 setting the length
 #' and width
 #'  of the ocean.}
 #' \item{\code{males}: }{An integer giving the number of males (to be
@@ -193,6 +207,9 @@ Female$set("public",
 #' value, the lower the carrying-capacity of the population
 #' will be.}
 #' }
+#' \item{\code{advance}: }{Advances the simulation by one generation.
+#' Takes no arguments.}
+#' \item{\code{plot}: }{Plots the current population.  Takes no arguments.}
 #' }
 #' @examples
 #' \dontrun{
