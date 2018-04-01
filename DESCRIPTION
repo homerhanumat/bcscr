@@ -7,7 +7,9 @@ Maintainer: Homer White <homerhanumat@gmail.com>
 Description: Functions and datasets to accompany the text Beginning Computer Science with R (https://homerhanumat.github.io/r-notes).
 Imports:
     ggplot2,
-    TurtleGraphics
+    TurtleGraphics,
+    R6,
+    purrr
 License: GPL (>=3)
 Encoding: UTF-8
 LazyData: true

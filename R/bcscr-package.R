@@ -12,7 +12,8 @@
 #' \url{https://homerhanumat.github.io/r-notes}
 #'
 #' @keywords package
-#' @import ggplot2 TurtleGraphics
+#' @import ggplot2 TurtleGraphics R6
 #' @importFrom stats rbinom
 #' @importFrom stats runif
+#' @importFrom purrr map_dfr
 NULL
