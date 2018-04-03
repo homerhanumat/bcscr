@@ -2,9 +2,13 @@ Package: bcscr
 Type: Package
 Title: Beginning Computer Science with R
 Version: 0.1.0
-Author: Homer White
+Authors@R: c(
+    person("Homer", "White",
+           email = "homerhanumat@gmail.com", 
+           role = c("aut", "cre")))
 Maintainer: Homer White <homerhanumat@gmail.com>
-Description: Functions and datasets to accompany the text Beginning Computer Science with R (https://homerhanumat.github.io/r-notes).
+Description: Functions and datasets to accompany the text Beginning 
+    Computer Science with R (https://homerhanumat.github.io/r-notes).
 Imports:
     ggplot2,
     TurtleGraphics,
@@ -12,6 +16,7 @@ Imports:
     purrr
 License: GPL (>=3)
 Encoding: UTF-8
+NeedsCompilation: no
 LazyData: true
 URL: https://github.com/homerhanumat/bcscr
 RoxygenNote: 6.0.1

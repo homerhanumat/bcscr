@@ -1,0 +1,31 @@
+---
+title: "Beginning Computer Science with R"
+output:
+  html_document:
+    keep_md: false
+---
+
+```{r include = FALSE}
+library(simaltruist)
+knitr::opts_chunk$set(out.width = "90%", fig.align = "center")
+```
+
+<br><br>
+The R package **bcscr** exposes some of the larger functions and R6 objects that appear in the online textbook [Beginning Computer Science with R](https://homerhanumat.github.io/r-notes).
+
+## Installation
+
+Install the package from Git Hub:
+
+```{r eval = FALSE}
+devtools::install_github("homerhanumat/bcscr")
+```
+
+Then attach the package:
+
+```{r eval = FALSE}
+library(bcscr)
+```
+
+
+Enjoy!

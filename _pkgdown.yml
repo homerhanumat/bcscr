@@ -1,0 +1,26 @@
+title: Beginning Computer Science with R
+url: https://github.com/homerhanumat/bcscr
+template:
+  params:
+    bootswatch: yeti
+reference:
+  - title: "Functions"
+    desc: >
+      Larger functions (or variants thereof) from the textbook.
+    contents:
+      - collatz
+      - courtSim
+      - courtSim2
+      - drunkenSim
+      - drunkenSim2
+      - numberNeededSim
+      - triangleSim
+      - turtle_bounce
+      - turtle_drunk
+  - title: "Whales in the Ocean"
+    desc: "R6 objects for simulating whales in an ocean."
+    contents:
+      - Ocean
+      - Whale
+      - Female
+      - Male
