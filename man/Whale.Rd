@@ -45,7 +45,7 @@ eligible male.}
 \examples{
 \dontrun{
 initialMales <- vector(mode = "list", length = 10)
-ages <- c(rep(3, 5), c(rep(10, 5))
+ages <- c(rep(3, 5), c(rep(10, 5)))
 for (i in 1:10) {
   initialMales[[i]] <- Male$new(
     position = runif(2, min = 0, max = 100),

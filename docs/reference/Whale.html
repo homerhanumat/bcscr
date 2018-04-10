@@ -122,62 +122,61 @@ eligible male.</p></li>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"># NOT RUN {
-initialMales <- vector(mode = "list", length = 10)
-ages <- c(rep(3, 5), c(rep(10, 5))
-for (i in 1:10) {
-  initialMales[[i]] <- Male$new(
-    position = runif(2, min = 0, max = 100),
-    age = ages[i],
-    lifespan = 40,
-    range = 12,
-    maturity = 10,
-    stepSize = 7
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>initialMales</span> <span class='kw'>&lt;-</span> <span class='fu'>vector</span>(<span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"list"</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>10</span>)
+<span class='no'>ages</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='fl'>3</span>, <span class='fl'>5</span>), <span class='fu'>c</span>(<span class='fu'>rep</span>(<span class='fl'>10</span>, <span class='fl'>5</span>)))
+<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fl'>10</span>) {
+  <span class='no'>initialMales</span><span class='kw'>[[</span><span class='no'>i</span>]] <span class='kw'>&lt;-</span> <span class='no'>Male</span>$<span class='fu'>new</span>(
+    <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>2</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>),
+    <span class='kw'>age</span> <span class='kw'>=</span> <span class='no'>ages</span>[<span class='no'>i</span>],
+    <span class='kw'>lifespan</span> <span class='kw'>=</span> <span class='fl'>40</span>,
+    <span class='kw'>range</span> <span class='kw'>=</span> <span class='fl'>12</span>,
+    <span class='kw'>maturity</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+    <span class='kw'>stepSize</span> <span class='kw'>=</span> <span class='fl'>7</span>
   )
 }
-initialFemales <- vector(mode = "list", length = 10)
-for (i in 1:10) {
-  initialFemales[[i]] <- Female$new(
-    position = runif(2, min = 0, max = 100),
-    age = ages[i],
-    lifespan = 40,
-    maturity = 10,
-    range = 12,
-    stepSize = 3
+<span class='no'>initialFemales</span> <span class='kw'>&lt;-</span> <span class='fu'>vector</span>(<span class='kw'>mode</span> <span class='kw'>=</span> <span class='st'>"list"</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>10</span>)
+<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fl'>10</span>) {
+  <span class='no'>initialFemales</span><span class='kw'>[[</span><span class='no'>i</span>]] <span class='kw'>&lt;-</span> <span class='no'>Female</span>$<span class='fu'>new</span>(
+    <span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>runif</span>(<span class='fl'>2</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>100</span>),
+    <span class='kw'>age</span> <span class='kw'>=</span> <span class='no'>ages</span>[<span class='no'>i</span>],
+    <span class='kw'>lifespan</span> <span class='kw'>=</span> <span class='fl'>40</span>,
+    <span class='kw'>maturity</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+    <span class='kw'>range</span> <span class='kw'>=</span> <span class='fl'>12</span>,
+    <span class='kw'>stepSize</span> <span class='kw'>=</span> <span class='fl'>3</span>
   )
 }
 
-library(ggplot2)
-oceanSim <- function(
-  steps = 100,
-  males = initialMales,
-  females = initialFemales,
-  starve = 5,
-  animate = TRUE,
-  seed = NULL
+<span class='fu'>library</span>(<span class='no'>ggplot2</span>)
+<span class='no'>oceanSim</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(
+  <span class='no'>steps</span> <span class='kw'>=</span> <span class='fl'>100</span>,
+  <span class='no'>males</span> <span class='kw'>=</span> <span class='no'>initialMales</span>,
+  <span class='no'>females</span> <span class='kw'>=</span> <span class='no'>initialFemales</span>,
+  <span class='no'>starve</span> <span class='kw'>=</span> <span class='fl'>5</span>,
+  <span class='no'>animate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
   ) {
- if ( !is.null(seed) ) {
-   set.seed(seed)
+ <span class='kw'>if</span> ( !<span class='fu'>is.null</span>(<span class='no'>seed</span>) ) {
+   <span class='fu'>set.seed</span>(<span class='no'>seed</span>)
   }
-  ocean <- Ocean$new(dims = c(100, 100), males = males,
-                     females = females, starve = starve)
-  population <-numeric(steps)
-  for ( i in 1:steps ) {
-    population[i] <- ocean$malePop + ocean$femalePop
-    if ( animate ) ocean$plot()
-    if ( population[i] == 0 ) break
-    ocean$advance()
-    if ( animate ) Sys.sleep(0.5)
+  <span class='no'>ocean</span> <span class='kw'>&lt;-</span> <span class='no'>Ocean</span>$<span class='fu'>new</span>(<span class='kw'>dims</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>100</span>, <span class='fl'>100</span>), <span class='kw'>males</span> <span class='kw'>=</span> <span class='no'>males</span>,
+                     <span class='kw'>females</span> <span class='kw'>=</span> <span class='no'>females</span>, <span class='kw'>starve</span> <span class='kw'>=</span> <span class='no'>starve</span>)
+  <span class='no'>population</span> <span class='kw'>&lt;-</span><span class='fu'>numeric</span>(<span class='no'>steps</span>)
+  <span class='kw'>for</span> ( <span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='no'>steps</span> ) {
+    <span class='no'>population</span>[<span class='no'>i</span>] <span class='kw'>&lt;-</span> <span class='no'>ocean</span>$<span class='no'>malePop</span> + <span class='no'>ocean</span>$<span class='no'>femalePop</span>
+    <span class='kw'>if</span> ( <span class='no'>animate</span> ) <span class='no'>ocean</span>$<span class='fu'>plot</span>()
+    <span class='kw'>if</span> ( <span class='no'>population</span>[<span class='no'>i</span>] <span class='kw'>==</span> <span class='fl'>0</span> ) <span class='kw'>break</span>
+    <span class='no'>ocean</span>$<span class='fu'>advance</span>()
+    <span class='kw'>if</span> ( <span class='no'>animate</span> ) <span class='fu'>Sys.sleep</span>(<span class='fl'>0.5</span>)
   }
-  pop <- population[1:i]
-  df <- data.frame(time = 1:length(pop),
-                  pop)
-  ggplot(df, aes(x = time, y = pop)) + geom_line() +
-    labs(x = "Time", y = "Whale Population")
+  <span class='no'>pop</span> <span class='kw'>&lt;-</span> <span class='no'>population</span>[<span class='fl'>1</span>:<span class='no'>i</span>]
+  <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>time</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fu'>length</span>(<span class='no'>pop</span>),
+                  <span class='no'>pop</span>)
+  <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>time</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pop</span>)) + <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_path'>geom_line</a></span>() +
+    <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/labs'>labs</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Time"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Whale Population"</span>)
 }
-oceanSim()
-# }
-</pre>
+<span class='fu'>oceanSim</span>()
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

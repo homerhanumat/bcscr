@@ -31,7 +31,7 @@
 #' @examples
 #' \dontrun{
 #' initialMales <- vector(mode = "list", length = 10)
-#' ages <- c(rep(3, 5), c(rep(10, 5))
+#' ages <- c(rep(3, 5), c(rep(10, 5)))
 #' for (i in 1:10) {
 #'   initialMales[[i]] <- Male$new(
 #'     position = runif(2, min = 0, max = 100),
@@ -260,26 +260,28 @@ Ocean <- R6::R6Class("Ocean",
                      yMax <- dims[2]
                      if (mode(males) == "list") {
                        maleWhales <- purrr::map(males, function(x) x$clone())
+                       self$malePop <- length(males)
                      } else {
                        maleWhales <- replicate(
                          males,
                          Male$new(age = 10,
                                   position = c(runif(1, 0, xMax),
                                                runif(1, 0, yMax))))
+                       self$malePop <- males
                      }
                      if (mode(females) == "list") {
                        femaleWhales <- purrr::map(females, function(x) x$clone())
+                       self$femalePop <- length(females)
                      } else {
                        femaleWhales <- replicate(
                          females,
                          Female$new(age = 10,
                                     position = c(runif(1, 0, xMax),
                                                  runif(1, 0, yMax))))
+                       self$femalePop <- females
                      }
                      self$males <- maleWhales
                      self$females <- femaleWhales
-                     self$malePop <- length(males)
-                     self$femalePop <- length(females)
                      self$starveParameter <- starve
                    },
                    starvationProbability = function(popDensity) {
