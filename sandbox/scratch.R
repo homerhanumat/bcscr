@@ -47,3 +47,5 @@ oceanSim <- function(steps = 100, males = initialMales,
     labs(x = "Time", y = "Whale Population")
 }
 oceanSim(steps = 10, males = 5, females = 5, animate = TRUE)
+data("fuel", package = "tigerstats")
+save(fuel, file =  "data/fuel.rda")

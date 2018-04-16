@@ -24,3 +24,8 @@ reference:
       - Whale
       - Female
       - Male
+  - title: "Data"
+    desc:  "A few data sets used in CSC 115."
+    contents:
+      - fuel
+      - m111survey
