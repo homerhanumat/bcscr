@@ -1,0 +1,87 @@
+---
+title: "Sample R Pubs Document!"
+author: "Your Name Here!"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+# Possible pretty doc themes are:
+#    cayman, architect, tactile, hpstr, leonids
+---
+
+**Caveat:** This document provides a convenient, worry-free format for writing an article for R Pubs.  Of course you must modify it properly.  In particular you must delete any instructional material (such as this paragraph, for instance), and don't keep the example shown in this document.  Also, do not forget to provide your own name and title in the YAML front matter.
+
+```{r setup, include = FALSE}
+# You should also load any packages that you need, for example:
+# library(ggplot2)
+
+# This is a good place for global chunk options;
+# we'll get you started with a few sensible ones.
+# Don't try to modify them until you have more experience.
+knitr::opts_chunk$set(
+  fig.align = 'center', # center graphs on the page
+  out.width = "90%",    # graphs take up 90% of available width
+  warning = FALSE,      # prevent warnings and messages in the
+  message = FALSE,      # console from getting into the knitted
+                        # document
+  tidy = FALSE          # show code like you wrote it
+ )
+```
+
+
+## The Problem:  Reversing a Vector
+
+Our problem is to write a function called `reverse()` that when given a vector returns a vector whose elements are the results of the given vector.  The function is supposed to take a single parameter  called `vec`, the vector to be reversed, and the default value of `vec` is supposed to be `c("Bob", "Marley")`.
+
+## A Hint
+
+This problem is difficult enough that we might not be able to write down the function from scratch, so we should take our time and build up to it in a sequence of small steps.
+
+#### Step One:  Reverse a Specific Vector
+
+In order to reverse the following vector of length five:
+
+```{r}
+firstFiveLetters <- c("a", "b", "c", "d", "e")
+```
+
+we simply subset the vector in reverse order:
+
+```{r}
+firstFiveLetters[5:1]
+```
+
+#### Step Two:  Generalize
+
+In the above code we can get the `5` as `length(firstFiveLetters)`, the following code would have worked just as well:
+
+```{r}
+firstFiveLetters[length(firstFiveLetters):1]
+```
+
+Let's try this out on some other vector called `vec`:
+
+```{r}
+vec <- c("Raj", "Bettina", "Salome")  # here you can set the vector
+vec[length(vec):1]                    # this line does the work of reversing
+```
+
+#### Step Three:  Encapsulate Into a Function
+
+Now we are ready to encapsulate the working code into a function.  The default value should be provided when we state the parameter:
+
+```{r eval = FALSE}
+reverse <- function(vec = c("Bob", "Marley")) {
+  # the working code goes here!
+}
+```
+
+You need to replace the comment above with the code that will reverse `vec`.
+
+#### Step Four:  Test Your Function
+
+Don't forget to write some code to test your function.  You should test it with no input to see that the default-values really work, and also with `vec` set to another vector that overrides the default.
+
+
+

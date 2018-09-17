@@ -1,0 +1,4 @@
+name: CSC 115 R Pubs (HTML)
+description: >
+  Template to create HTML R Pubs articles for elementary computer science courses at Georgetown College.
+create_dir: false

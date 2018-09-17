@@ -12,11 +12,20 @@ output:
 **Caveat:** This document provides a convenient, worry-free format for writing up homework.  Of course you must modify it properly.  In particular you must delete any instructional material (such as this paragraph, for instance).  Also, don't forget to provide your own name and title in the YAML front matter.
 
 ```{r setup, include = FALSE}
-# this is a good place for global chunk options, for example:
-# knitr::opts_chunk$set(fig.align = 'center, out.width = "90%")
-
-# you should also load any packages that you need, for example:
+# You should also load any packages that you need, for example:
 # library(ggplot2)
+
+# This is a good place for global chunk options;
+# we'll get you started with a few sensible ones.
+# Don't try to modify them until you have more experience.
+knitr::opts_chunk$set(
+  fig.align = 'center', # center graphs on the page
+  out.width = "90%",    # graphs take up 90% of available width
+  warning = FALSE,      # prevent warnings and messages in the
+  message = FALSE,      # console from getting into the knitted
+                        # document
+  tidy = FALSE          # show code like you wrote it
+ )
 ```
 
 
