@@ -13,7 +13,8 @@ Imports:
     ggplot2,
     TurtleGraphics,
     R6,
-    purrr
+    purrr,
+    shiny
 License: GPL (>=3)
 Encoding: UTF-8
 NeedsCompilation: no
