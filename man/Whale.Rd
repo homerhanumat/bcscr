@@ -5,8 +5,6 @@
 \alias{Whale}
 \alias{Female}
 \alias{Male}
-\alias{Male}
-\alias{Female}
 \title{Whales in an Ocean}
 \format{\code{\link{R6Class}} object.}
 \usage{

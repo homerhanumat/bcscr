@@ -15,5 +15,6 @@
 #' @import ggplot2 TurtleGraphics R6 shiny
 #' @importFrom stats rbinom
 #' @importFrom stats runif
+#' @importFrom stats dnorm sd
 #' @importFrom purrr map map_dfr
 NULL

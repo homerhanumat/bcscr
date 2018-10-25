@@ -1,9 +1,9 @@
 #' @title Exploring Kernel Density Estimation
 
-#' @description See how density plots are built from kernels..
+#' @description See how density plots are built from kernels.
 #'
 #' @rdname kdExplore
-#' @usage kdExplore(data, options = NULL,...)
+#' @usage kdExplore(data, options = NULL)
 #' @param data A vector of numerical values from which to form the density plot.
 #' @param options Options that will be passed to \code{shiny::shinyApp}.
 #' @return side effects
@@ -11,7 +11,7 @@
 #' @author Homer White \email{hwhite0@@georgetowncollege.edu}
 #' @examples
 #' \dontrun{
-#' ## smal cusotm dataset:
+#' ## small custom dataset:
 #' myData <- c(1, 3, 5, 6, 6.2, 7, 9)
 #' kdExplore(myData)
 #'
@@ -22,7 +22,7 @@ kdExplore <-
   function(data, options = NULL) {
     data <- sort(data)
     n <- length(data)
-    roughBW <- 1.06 * sd(data) * n^(-0.2)
+    roughBW <- 1.06 * stats::sd(data) * n^(-0.2)
     sliderMax <- round(roughBW * 3, 3)
     sliderMin <- round(min(data[2:n] - data[1:(n - 1)]) / 10, 3)
     slopOver <- (max(data) - min(data)) / 20
@@ -61,7 +61,7 @@ kdExplore <-
       dens <-
         switch(kernel,
           gaussian = {
-            dnorm(y)
+            stats::dnorm(y)
           },
           rectangular = {
             ifelse(y < 1, 1 / 2, 0)
