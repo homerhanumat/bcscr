@@ -30,6 +30,7 @@ reference:
       - fuel
       - m111survey
   - title:  "Misc"
-    desc:  "Functions used on other courses."
+    desc:  "Functions used in other courses."
     contents:
       - kdExplore
+      - qqExplore

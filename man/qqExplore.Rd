@@ -21,7 +21,7 @@ Understand why qq-plots bend the way they do.
 \dontrun{
 ## bimodal data:
 bimodal <- c(rnorm(50, 5, 1), rnorm(50, 10, 1))
-kdExplore(bimodal)
+qqExplore(bimodal)
 
 ## random exponential data:
 qqExplore(rexp(300, rate = 0.2))
