@@ -13,6 +13,7 @@
 #'
 #' @keywords package
 #' @import ggplot2 TurtleGraphics R6 shiny
+#' @importFrom ggExtra ggMarginal
 #' @importFrom stats rbinom
 #' @importFrom stats runif
 #' @importFrom stats dnorm sd

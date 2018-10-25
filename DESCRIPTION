@@ -11,6 +11,7 @@ Description: Functions and datasets to accompany the text Beginning
     Computer Science with R (https://homerhanumat.github.io/r-notes).
 Imports:
     ggplot2,
+    ggExtra,
     TurtleGraphics,
     R6,
     purrr,
