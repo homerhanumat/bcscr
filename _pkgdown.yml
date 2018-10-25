@@ -4,7 +4,7 @@ template:
   params:
     bootswatch: yeti
 reference:
-  - title: "Functions"
+  - title: "Textbook Functions"
     desc: >
       Larger functions (or variants thereof) from the textbook.
     contents:
@@ -29,3 +29,7 @@ reference:
     contents:
       - fuel
       - m111survey
+  - title:  "Misc"
+    desc:  "Functions used on other courses."
+    contents:
+      - kdExplore

@@ -18,13 +18,39 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="MAT 111 Survey — m111survey" />
+
+<meta property="og:description" content="Results of a survey of MAT 111 students at Georgetown College.
+
+height.  How tall are you, in inches?
+ideal_ht.  A numeric vector  How tall would you LIKE to be, in inches?
+sleep.  How much sleep did you get last night?
+fastest.  What is the highest speed at which you have ever driven a car?
+weight_feel.  How do you feel about your weight?
+love_first.  Do you believe in love at first sight?
+extra_life.  Do you believe in extraterrestrial life?
+seat.  When you have a choice, where do you prefer to sit in a classroom?
+GPA.  What is your college GPA?
+enough_Sleep.  Do you think you get enough sleep?
+sex.  What sex are you?
+diff.  Your ideal height minus your actual height.
+" />
+<meta name="twitter:card" content="summary" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +73,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">bcscr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">Beginning Computer Science with R</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,6 +100,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -77,14 +108,18 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>MAT 111 Survey</h1>
+    <small class="dont-index">Source: <a href='https://github.com/homerhanumat/bcscr/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>m111survey.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
-    <p>Results of a survey of MAT 111 students at Georgetown College.</p><ul>
+    <p>Results of a survey of MAT 111 students at Georgetown College.</p>
+<ul>
 <li><p>height.  How tall are you, in inches?</p></li>
 <li><p>ideal_ht.  A numeric vector  How tall would you LIKE to be, in inches?</p></li>
 <li><p>sleep.  How much sleep did you get last night?</p></li>
@@ -99,6 +134,7 @@
 <li><p>diff.  Your ideal height minus your actual height.</p></li>
 </ul>
     
+    </div>
 
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -135,5 +171,8 @@
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

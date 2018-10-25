@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Function reference" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">bcscr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">Beginning Computer Science with R</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -70,6 +83,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -77,136 +91,147 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.1.0</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-functions" class="hasAnchor"><a href="#section-functions" class="anchor"></a>Functions</h2>
-            <p class="section-desc"><p>Larger functions (or variants thereof) from the textbook.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="collatz.html">collatz</a></code> </p>
-          </td>
-          <td><p>Collatz Numbers</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="courtSim.html">courtSim</a></code> </p>
-          </td>
-          <td><p>Appeals Court Simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="courtSim2.html">courtSim2</a></code> </p>
-          </td>
-          <td><p>Appeals Court Simulation (Version 2)</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="drunkenSim.html">drunkenSim</a></code> </p>
-          </td>
-          <td><p>Drunken-Turtle Simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="drunkenSim2.html">drunkenSim2</a></code> </p>
-          </td>
-          <td><p>Drunken-Turtle Simulation (Graph Version)</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="numberNeededSim.html">numberNeededSim</a></code> </p>
-          </td>
-          <td><p>Number-Needed Simulation</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="triangleSim.html">triangleSim</a></code> </p>
-          </td>
-          <td><p>Chance of a Triangle</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="turtle_bounce.html">turtle_bounce</a></code> </p>
-          </td>
-          <td><p>Bouncing Turtle (Turtle Graphics)</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="turtle_drunk.html">turtle_drunk</a></code> </p>
-          </td>
-          <td><p>Drunken Turtle (Turtle Graphics)</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-whales-in-the-ocean" class="hasAnchor"><a href="#section-whales-in-the-ocean" class="anchor"></a>Whales in the Ocean</h2>
-            <p class="section-desc"><p>R6 objects for simulating whales in an ocean.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="Ocean.html">Ocean</a></code> </p>
-          </td>
-          <td><p>Whales in an Ocean</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="Whale.html">Whale</a></code> <code><a href="Whale.html">Male</a></code> <code><a href="Whale.html">Female</a></code> </p>
-          </td>
-          <td><p>Whales in an Ocean</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
-            <p class="section-desc"><p>A few data sets used in CSC 115.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fuel.html">fuel</a></code> </p>
-          </td>
-          <td><p>Speed and Fuel Efficiency (British Ford Escort)</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="m111survey.html">m111survey</a></code> </p>
-          </td>
-          <td><p>MAT 111 Survey</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-textbook-functions" class="hasAnchor"><a href="#section-textbook-functions" class="anchor"></a>Textbook Functions</h2>
+          <p class="section-desc"><p>Larger functions (or variants thereof) from the textbook.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="collatz.html">collatz()</a></code> </p>
+        </td>
+        <td><p>Collatz Numbers</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="courtSim.html">courtSim()</a></code> </p>
+        </td>
+        <td><p>Appeals Court Simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="courtSim2.html">courtSim2()</a></code> </p>
+        </td>
+        <td><p>Appeals Court Simulation (Version 2)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="drunkenSim.html">drunkenSim()</a></code> </p>
+        </td>
+        <td><p>Drunken-Turtle Simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="drunkenSim2.html">drunkenSim2()</a></code> </p>
+        </td>
+        <td><p>Drunken-Turtle Simulation (Graph Version)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="numberNeededSim.html">numberNeededSim()</a></code> </p>
+        </td>
+        <td><p>Number-Needed Simulation</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="triangleSim.html">triangleSim()</a></code> </p>
+        </td>
+        <td><p>Chance of a Triangle</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="turtle_bounce.html">turtle_bounce()</a></code> </p>
+        </td>
+        <td><p>Bouncing Turtle (Turtle Graphics)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="turtle_drunk.html">turtle_drunk()</a></code> </p>
+        </td>
+        <td><p>Drunken Turtle (Turtle Graphics)</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-whales-in-the-ocean" class="hasAnchor"><a href="#section-whales-in-the-ocean" class="anchor"></a>Whales in the Ocean</h2>
+          <p class="section-desc"><p>R6 objects for simulating whales in an ocean.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="Ocean.html">Ocean</a></code> </p>
+        </td>
+        <td><p>Whales in an Ocean</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Whale.html">Whale</a></code> <code><a href="Whale.html">Male</a></code> <code><a href="Whale.html">Female</a></code> </p>
+        </td>
+        <td><p>Whales in an Ocean</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-data" class="hasAnchor"><a href="#section-data" class="anchor"></a>Data</h2>
+          <p class="section-desc"><p>A few data sets used in CSC 115.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="fuel.html">fuel</a></code> </p>
+        </td>
+        <td><p>Speed and Fuel Efficiency (British Ford Escort)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m111survey.html">m111survey</a></code> </p>
+        </td>
+        <td><p>MAT 111 Survey</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-misc" class="hasAnchor"><a href="#section-misc" class="anchor"></a>Misc</h2>
+          <p class="section-desc"><p>Functions used on other courses.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="kdExplore.html">kdExplore()</a></code> </p>
+        </td>
+        <td><p>Exploring Kernel Density Estimation</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-functions">Functions</a></li>
+      <li><a href="#section-textbook-functions">Textbook Functions</a></li>
       <li><a href="#section-whales-in-the-ocean">Whales in the Ocean</a></li>
       <li><a href="#section-data">Data</a></li>
+      <li><a href="#section-misc">Misc</a></li>
     </ul>
   </div>
 </div>
@@ -223,5 +248,8 @@
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
