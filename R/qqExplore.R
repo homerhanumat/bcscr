@@ -26,7 +26,11 @@ qqExplore <-
     normals <- qnorm(qs)
 
     qqfn <- function(x) {
-      mean(data) + stats::sd(data) * x
+      # make the line R makes:
+      q1Index <- floor(n/4)
+      q3Index <- floor(3*n/4)
+      slope <- (data[q3Index] - data[q1Index]) / (normals[q3Index] - normals[q1Index])
+      slope * (x - normals[q3Index]) + data[q3Index]
     }
 
     alphaLevel <- function(x) {
