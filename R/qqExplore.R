@@ -30,11 +30,8 @@ qqExplore <-
     }
 
     alphaLevel <- function(x) {
-      if ( x <= 520 ) {
-        return(exp( 0.01 * (300 - x)) / (exp(0.01 * (300 - x)) + 1))
-      } else {
-        return(0.1)
-      }
+      ex <- exp(0.005 * (300 - x))
+      0.9 * (ex/(1 + ex)) + 0.1
     }
 
     # Define server logic for app
@@ -58,7 +55,7 @@ qqExplore <-
                        lty = 3) +
           ggplot2::geom_rug(color = "steelblue",
                             size = 0.5, sides = "tr",
-                            alpha = 0.5) +
+                            alpha = alphaLevel(n)) +
           ggplot2::geom_segment(x = normals[i], y = data[i],
                        xend = 1.5 * max(normals), yend = data[i],
                        lty = 3) +
