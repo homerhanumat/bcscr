@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Exploring Quantile-Quantile Plots — qqExplore • Beginning Computer Science with R</title>
+<title>Exploring Major Probability Distributions — distExplore • Beginning Computer Science with R</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Exploring Quantile-Quantile Plots — qqExplore" />
+<meta property="og:title" content="Exploring Major Probability Distributions — distExplore" />
 
-<meta property="og:description" content="Understand why qq-plots bend the way they do." />
+<meta property="og:description" content="Manipulate parameters of a chosen distribution." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -97,26 +97,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Exploring Quantile-Quantile Plots</h1>
-    <small class="dont-index">Source: <a href='https://github.com/homerhanumat/bcscr/blob/master/R/qqExplore.R'><code>R/qqExplore.R</code></a></small>
-    <div class="hidden name"><code>qqExplore.Rd</code></div>
+    <h1>Exploring Major Probability Distributions</h1>
+    <small class="dont-index">Source: <a href='https://github.com/homerhanumat/bcscr/blob/master/R/distExplore.R'><code>R/distExplore.R</code></a></small>
+    <div class="hidden name"><code>distExplore.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Understand why qq-plots bend the way they do.</p>
+    <p>Manipulate parameters of a chosen distribution.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>qqExplore</span>(<span class='no'>data</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>distExplore</span>(<span class='kw'>options</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>data</th>
-      <td><p>A vector of numerical values from which to form the qq-plot.</p></td>
-    </tr>
     <tr>
       <th>options</th>
       <td><p>Options that will be passed to <code><a href='http://www.rdocumentation.org/packages/shiny/topics/shinyApp'>shiny::shinyApp</a></code>.</p></td>
@@ -130,12 +126,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'>## bimodal data:</span>
-<span class='no'>bimodal</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fu'>rnorm</span>(<span class='fl'>50</span>, <span class='fl'>5</span>, <span class='fl'>1</span>), <span class='fu'>rnorm</span>(<span class='fl'>50</span>, <span class='fl'>10</span>, <span class='fl'>1</span>))
-<span class='fu'>qqExplore</span>(<span class='no'>bimodal</span>)
-
-<span class='co'>## random exponential data:</span>
-<span class='fu'>qqExplore</span>(<span class='fu'>rexp</span>(<span class='fl'>300</span>, <span class='kw'>rate</span> <span class='kw'>=</span> <span class='fl'>0.2</span>))
+<span class='fu'>distExplore</span>()
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -89,6 +89,7 @@ distExplore <- function(options = NULL) {
   server <- shinyServer(function(input, output) {
     output$bernoulliplot <- renderPlot({
       prob <- input$bernoullipi
+      print(class(prob))
       ggformula::gf_dist(dist = "binom", params = list(size = 1, prob = prob))
     })
   })

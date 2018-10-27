@@ -15,7 +15,8 @@ Imports:
     TurtleGraphics,
     R6,
     purrr,
-    shiny
+    shiny,
+    shinydashboard
 License: GPL (>=3)
 Encoding: UTF-8
 NeedsCompilation: no

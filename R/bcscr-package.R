@@ -12,7 +12,7 @@
 #' \url{https://homerhanumat.github.io/r-notes}
 #'
 #' @keywords package
-#' @import ggplot2 TurtleGraphics R6 shiny
+#' @import ggplot2 TurtleGraphics R6 shiny shinydashboard
 #' @importFrom ggExtra ggMarginal
 #' @importFrom stats rbinom
 #' @importFrom stats runif
