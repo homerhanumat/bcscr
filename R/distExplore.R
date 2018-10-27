@@ -94,17 +94,17 @@ distExplore <- function(options = NULL) {
           column(width = 6, plotOutput("p")),
           column(width = 6, plotOutput("c"))
           ),
-        fluidRow(uiOutput("params")),
-        fluidRow(uiOutput("hyperk"))
+        br(),
+        fluidRow(uiOutput("params"))
       ) # end dashboard body
     ) # end dashboard page
   )
 
   server <- shinyServer(function(input, output, session) {
     rv <- reactiveValues(
-      type = "discrete",
-      dist = "binom",
-      params = list(size = 100, prob = 0.50)
+      type = NULL,
+      dist = NULL,
+      params = NULL
     )
     observeEvent(input$dist, {
       dist <- input$dist
@@ -130,7 +130,7 @@ distExplore <- function(options = NULL) {
         rv$type <- "discrete"
       }
       if (dist == "hyper") {
-        rv$params  <- list(m = 50, n = 50, k = 2)
+        rv$params  <- list(m = 50, n = 50, k = 20)
         rv$type <- "discrete"
       }
       if (dist == "pois") {
@@ -159,6 +159,10 @@ distExplore <- function(options = NULL) {
       }
     })
     observe({
+      input$size; input$shape; input$m; input$n; input$k
+      input$rate; input$prob; input$minmax;
+      input$shape1; input$shape2; input$mean; input$sd
+      input$lambda
       if (isolate(rv$dist)  %in% c("binom", "nbinom")) {
         rv$params  <- list(size = input$size, prob = input$prob)
       }
@@ -333,59 +337,76 @@ distExplore <- function(options = NULL) {
       }
     })
     observe({
-      input$m
-      input$n
-      updateSliderInput(session = session, inputId = "k",
-                        max = input$m + input$n,
-                        value = min(input$k, input$m + input$n))
+      input$m; input$n
+      if (!(is.null(input$k) | is.null(input$m) | is.null(input$n))) {
+        updateSliderInput(session = session, inputId = "k",
+                          max = input$m + input$n,
+                          value = min(input$k, input$m + input$n))
+      }
     })
     output$description <- renderText({
       desc[input$dist]
     })
     output$p <- renderPlot({
-      dist <- rv$dist
-      dist <- ifelse(dist == "bernoulli", "binom", dist)
       params <- rv$params
-      xlims <- findLimits(paste0("q", dist), params)
-      if (rv$type == "discrete") {
-        title <- "Probability Mass Function"
-        yLab = "probability"
-        x <- xlims[1]:xlims[2]
-      } else {
-        title <- "Probability Density Function"
-        yLab <- "density"
-        x <- seq(xlims[1], xlims[2], length.out = 1001)
+      n <- length(params)
+      assigned <- logical(n)
+      for (i in 1:n) {
+        assigned[i] <- !is.null(params[[i]])
       }
-      y <- do.call(paste0("d", dist), c(list(x = x), params))
-      df <- data.frame(x = x, y = y)
-      p <- ggplot(df, aes(x = x, y = y)) +
-        labs(y = yLab,
-             title = title)
-      if (rv$type == "discrete") {
-        p <- p +
-          geom_point() +
-          geom_segment(aes(x = x, xend = x, y = 0, yend = y))
-      } else {
-        p <- p +
-          geom_line()
-      }
+      if (all(assigned)) {
+        dist <- rv$dist
+        dist <- ifelse(dist == "bernoulli", "binom", dist)
+        params <- rv$params
+        xlims <- findLimits(paste0("q", dist), params)
+        if (rv$type == "discrete") {
+          title <- "Probability Mass Function"
+          yLab = "probability"
+          x <- xlims[1]:xlims[2]
+        } else {
+          title <- "Probability Density Function"
+          yLab <- "density"
+          x <- seq(xlims[1], xlims[2], length.out = 1001)
+        }
+        y <- do.call(paste0("d", dist), c(list(x = x), params))
+        df <- data.frame(x = x, y = y)
+        p <- ggplot(df, aes(x = x, y = y)) +
+          labs(y = yLab,
+               title = title)
+        if (rv$type == "discrete") {
+          p <- p +
+            geom_point() +
+            geom_segment(aes(x = x, xend = x, y = 0, yend = y))
+        } else {
+          p <- p +
+            geom_line()
+        }
         p
+      }
     })
     output$c <- renderPlot({
-      dist <- rv$dist
-      dist <- ifelse(dist == "bernoulli", "binom", dist)
       params <- rv$params
-      title <- "Cumulative Distribution Function"
-      yLab = "probability"
-      xlims <- findLimits(paste0("q", dist), params)
-      x <- seq(xlims[1], xlims[2], length.out = 1001)
-      y <- do.call(paste0("p", dist), c(list(q = x), params))
-      df <- data.frame(x = x, y = y)
-      p <- ggplot(df, aes(x = x, y = y)) +
-        geom_line() +
-        labs(y = yLab,
-             title = title)
-      p
+      n <- length(params)
+      assigned <- logical(n)
+      for (i in 1:n) {
+        assigned[i] <- !is.null(params[[i]])
+      }
+      if (all(assigned)) {
+        dist <- rv$dist
+        dist <- ifelse(dist == "bernoulli", "binom", dist)
+        params <- rv$params
+        title <- "Cumulative Distribution Function"
+        yLab = "probability"
+        xlims <- findLimits(paste0("q", dist), params)
+        x <- seq(xlims[1], xlims[2], length.out = 1001)
+        y <- do.call(paste0("p", dist), c(list(q = x), params))
+        df <- data.frame(x = x, y = y)
+        p <- ggplot(df, aes(x = x, y = y)) +
+          geom_line() +
+          labs(y = yLab,
+               title = title)
+        p
+      }
     })
   })
 
