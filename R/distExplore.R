@@ -575,5 +575,5 @@ distExplore <- function(options = NULL) {
     })
   })
 
-  shiny::shinyApp(ui = ui, server = server)
+  shiny::runApp(list(ui = ui, server = server), launch.browser = TRUE)
 }
