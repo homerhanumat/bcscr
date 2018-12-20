@@ -44,3 +44,20 @@ NA
 
 
 NA
+
+#' @title Names and Phone Numbers
+#'
+#' @description Sample data for regular expression practice.
+#'
+#' \itemize{
+#'       \item name.  Last name followed by first.
+#'       \item phone. Phone number with area code, in several formats.
+#' }
+#'
+#' @docType data
+#' @keywords datasets.
+#' @format A data frame with 50 rows and 2 variables
+#' @name NamePhone
+
+
+NA

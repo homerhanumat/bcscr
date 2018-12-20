@@ -16,10 +16,11 @@ Imports:
     R6,
     purrr,
     shiny,
-    shinydashboard
+    shinydashboard,
+    htmltools
 License: GPL (>=3)
 Encoding: UTF-8
 NeedsCompilation: no
 LazyData: true
 URL: https://github.com/homerhanumat/bcscr
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1

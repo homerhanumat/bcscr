@@ -16,6 +16,10 @@
 #' @importFrom ggExtra ggMarginal
 #' @importFrom stats rbinom
 #' @importFrom stats runif
-#' @importFrom stats dnorm sd
+#' @importFrom stats dnorm sd qnorm
 #' @importFrom purrr map map_dfr
+#' @importFrom htmltools tagAppendAttributes
 NULL
+
+## quiets concerns of R CMD check kd and qq Explore apps:
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("x", "y"))
