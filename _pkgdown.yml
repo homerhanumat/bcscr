@@ -25,10 +25,11 @@ reference:
       - Female
       - Male
   - title: "Data"
-    desc:  "A few data sets used in CSC 115."
+    desc:  "A few data sets used in CSC 115 and 215."
     contents:
       - fuel
       - m111survey
+      - NamePhone
   - title:  "Misc"
     desc:  "Functions used in other courses."
     contents:
