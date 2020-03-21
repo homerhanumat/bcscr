@@ -19,11 +19,13 @@ output:
 # we'll get you started with a few sensible ones.
 # Don't try to modify them until you have more experience.
 knitr::opts_chunk$set(
+  error = TRUE,         # document will knit even if code-chunk contains error
   fig.align = 'center', # center graphs on the page
   out.width = "90%",    # graphs take up 90% of available width
   warning = FALSE,      # prevent warnings and messages in the
   message = FALSE,      # console from getting into the knitted
                         # document
+  size = "small",       # slightly smaller LaTeX output
   tidy = FALSE          # show code like you wrote it
  )
 ```
@@ -47,7 +49,7 @@ manyCat <- function(word, n) {
 }
 ```
 
-Let's test the function on a couple of examples.  To cat out `the string "Hello"` four times, we try: 
+Let's test the function on a couple of examples.  To cat out the string `"Hello"` four times, we try: 
 
 ```{r}
 manyCat(word = "Hello", n = 4)
