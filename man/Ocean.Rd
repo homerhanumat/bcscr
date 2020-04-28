@@ -5,9 +5,6 @@
 \alias{Ocean}
 \title{Whales in an Ocean}
 \format{\code{\link{R6Class}} object.}
-\usage{
-Ocean
-}
 \value{
 Object of \code{\link{R6Class}} with methods for simulation.
 }
@@ -57,37 +54,75 @@ Takes no arguments.}
 }
 }
 
-\examples{
-\dontrun{
-library(ggplot2)
-oceanSim <- function(
-  steps = 100, males = 10,
-  females = 10, starve = 5,
-  animate = TRUE, seed = NULL
-  ) {
- if ( !is.null(seed) ) {
-   set.seed(seed)
-  }
-  ocean <- Ocean$new(dims = c(100, 100), males = males,
-                     females = females, starve = starve)
-  population <-numeric(steps)
-  for ( i in 1:steps ) {
-    population[i] <- ocean$malePop + ocean$femalePop
-    if ( animate ) ocean$plot()
-    if ( population[i] == 0 ) break
-    ocean$advance()
-    if ( animate ) Sys.sleep(0.5)
-  }
-  pop <- population[1:i]
-  df <- data.frame(time = 1:length(pop),
-                  pop)
-  ggplot(df, aes(x = time, y = pop)) + geom_line() +
-    labs(x = "Time", y = "Whale Population")
-}
-oceanSim()
-}
-}
 \author{
 Homer White \email{homerhanumat@gmail.com}
 }
 \keyword{data}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-distance}{\code{Ocean$distance()}}
+\item \href{#method-new}{\code{Ocean$new()}}
+\item \href{#method-starvationProbability}{\code{Ocean$starvationProbability()}}
+\item \href{#method-advance}{\code{Ocean$advance()}}
+\item \href{#method-plot}{\code{Ocean$plot()}}
+\item \href{#method-clone}{\code{Ocean$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-distance"></a>}}
+\subsection{Method \code{distance()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Ocean$distance(a, b)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Ocean$new(dims = c(100, 100), males = 10, females = 10, starve = 5)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-starvationProbability"></a>}}
+\subsection{Method \code{starvationProbability()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Ocean$starvationProbability(popDensity)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-advance"></a>}}
+\subsection{Method \code{advance()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Ocean$advance()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-plot"></a>}}
+\subsection{Method \code{plot()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Ocean$plot()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Ocean$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -57,8 +57,8 @@
 #' library(ggplot2)
 #' oceanSim <- function(
 #'   steps = 100,
-#'   males = initialMales,
-#'   females = initialFemales,
+#'   males = 10,
+#'   females = 10,
 #'   starve = 5,
 #'   animate = TRUE,
 #'   seed = NULL
@@ -74,7 +74,10 @@
 #'     if ( animate ) ocean$plot()
 #'     if ( population[i] == 0 ) break
 #'     ocean$advance()
-#'     if ( animate ) Sys.sleep(0.5)
+#'     if ( animate ) {
+#'         ocean$plot()
+#'         Sys.sleep(0.5)
+#'       }
 #'   }
 #'   pop <- population[1:i]
 #'   df <- data.frame(time = 1:length(pop),
@@ -82,7 +85,7 @@
 #'   ggplot(df, aes(x = time, y = pop)) + geom_line() +
 #'     labs(x = "Time", y = "Whale Population")
 #' }
-#' oceanSim()
+#' oceanSim(males = initialMales, females = initialFemales)
 #'}
 Whale <- R6::R6Class("Whale",
                  public = list(
@@ -230,15 +233,17 @@ Female$set("public",
 #'     if ( animate ) ocean$plot()
 #'     if ( population[i] == 0 ) break
 #'     ocean$advance()
-#'     if ( animate ) Sys.sleep(0.5)
-#'   }
+#'     if ( animate ) {
+#'         ocean$plot()
+#'         Sys.sleep(0.5)
+#'       }
 #'   pop <- population[1:i]
 #'   df <- data.frame(time = 1:length(pop),
 #'                   pop)
 #'   ggplot(df, aes(x = time, y = pop)) + geom_line() +
 #'     labs(x = "Time", y = "Whale Population")
 #' }
-#' oceanSim()
+#' oceanSim(males = initialMales, females = initialFemales)
 #'}
 Ocean <- R6::R6Class("Ocean",
                  public = list(

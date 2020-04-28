@@ -7,13 +7,6 @@
 \alias{Male}
 \title{Whales in an Ocean}
 \format{\code{\link{R6Class}} object.}
-\usage{
-Whale
-
-Male
-
-Female
-}
 \value{
 Object of \code{\link{R6Class}} with methods for simulation.
 }
@@ -69,8 +62,8 @@ for (i in 1:10) {
 library(ggplot2)
 oceanSim <- function(
   steps = 100,
-  males = initialMales,
-  females = initialFemales,
+  males = 10,
+  females = 10,
   starve = 5,
   animate = TRUE,
   seed = NULL
@@ -86,7 +79,10 @@ oceanSim <- function(
     if ( animate ) ocean$plot()
     if ( population[i] == 0 ) break
     ocean$advance()
-    if ( animate ) Sys.sleep(0.5)
+    if ( animate ) {
+        ocean$plot()
+        Sys.sleep(0.5)
+      }
   }
   pop <- population[1:i]
   df <- data.frame(time = 1:length(pop),
@@ -94,11 +90,144 @@ oceanSim <- function(
   ggplot(df, aes(x = time, y = pop)) + geom_line() +
     labs(x = "Time", y = "Whale Population")
 }
-oceanSim()
+oceanSim(males = initialMales, females = initialFemales)
 }
 }
 \author{
 Homer White \email{homerhanumat@gmail.com}
 }
 \keyword{data}
-\keyword{datasets}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{Whale$new()}}
+\item \href{#method-move}{\code{Whale$move()}}
+\item \href{#method-clone}{\code{Whale$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Whale$new(
+  position = NA,
+  age = 3,
+  lifespan = 40,
+  range = 5,
+  maturity = 10,
+  stepSize = 5
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-move"></a>}}
+\subsection{Method \code{move()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Whale$move(dims, r = self$stepSize)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Whale$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
+\section{Super class}{
+\code{\link[bcscr:Whale]{bcscr::Whale}} -> \code{Male}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-clone}{\code{Male$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="initialize">}\href{../../bcscr/html/Whale.html#method-initialize}{\code{bcscr::Whale$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="move">}\href{../../bcscr/html/Whale.html#method-move}{\code{bcscr::Whale$move()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Male$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
+\section{Super class}{
+\code{\link[bcscr:Whale]{bcscr::Whale}} -> \code{Female}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-maleNear}{\code{Female$maleNear()}}
+\item \href{#method-mate}{\code{Female$mate()}}
+\item \href{#method-clone}{\code{Female$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="initialize">}\href{../../bcscr/html/Whale.html#method-initialize}{\code{bcscr::Whale$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="move">}\href{../../bcscr/html/Whale.html#method-move}{\code{bcscr::Whale$move()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-maleNear"></a>}}
+\subsection{Method \code{maleNear()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Female$maleNear(males, dist)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-mate"></a>}}
+\subsection{Method \code{mate()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Female$mate()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Female$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
