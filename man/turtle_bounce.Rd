@@ -20,9 +20,7 @@ A turtle walks randomly, but bounces back from the edge
 of its containing field.
 }
 \examples{
-\dontrun{
-turtle_bounce(side = 80, step = 10)
-}
+## turtle_bounce(side = 80, step = 10)
 }
 \author{
 Homer White \email{homerhanumat@gmail.com}

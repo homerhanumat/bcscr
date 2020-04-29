@@ -41,10 +41,6 @@
 <meta property="og:description" content="A drunken turtle starts at the origin and takes unit steps,
 turning through a randdom angle after each step.  We are interested in
 the distribution of the number of close-returns to the origin, for a fixed
-number of steps and a fixed measure of closeness.
-A drunken turtle starts at the origin and takes unit steps,
-turning through a randdom angle after each step.  We are interested in
-the distribution of the number of close-returns to the origin, for a fixed
 number of steps and a fixed measure of closeness." />
 
 
@@ -116,7 +112,7 @@ number of steps and a fixed measure of closeness." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Drunken-Turtle Simulation</h1>
-    <small class="dont-index">Source: <a href='https://github.com/homerhanumat/bcscr/blob/master/R/discreteBinom.R'><code>R/discreteBinom.R</code></a>, <a href='https://github.com/homerhanumat/bcscr/blob/master/R/drunkenSim.R'><code>R/drunkenSim.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/homerhanumat/bcscr/blob/master/R/drunkenSim.R'><code>R/drunkenSim.R</code></a></small>
     <div class="hidden name"><code>drunkenSim.Rd</code></div>
     </div>
 
@@ -126,17 +122,10 @@ number of steps and a fixed measure of closeness." />
 turning through a randdom angle after each step.  We are interested in
 the distribution of the number of close-returns to the origin, for a fixed
 number of steps and a fixed measure of closeness.</p>
-<p>A drunken turtle starts at the origin and takes unit steps,
-turning through a randdom angle after each step.  We are interested in
-the distribution of the number of close-returns to the origin, for a fixed
-number of steps and a fixed measure of closeness.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>drunkenSim</span>(<span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>reps</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>close</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-                       <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>drunkenSim</span>(<span class='kw'>steps</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>reps</span> <span class='kw'>=</span> <span class='fl'>10000</span>, <span class='kw'>close</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
                        <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -168,11 +157,10 @@ generation.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>side effects</p>
-<p>side effects</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>drunkenSim</span>(<span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>3030</span>)</div><div class='output co'>#&gt; The average number of close returns was:  1.6151.</div><div class='input'><span class='fu'>drunkenSim</span>(<span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>3030</span>)</div><div class='output co'>#&gt; The average number of close returns was:  1.6151.</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>drunkenSim</span>(<span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>3030</span>)</div><div class='output co'>#&gt; The average number of close returns was:  1.6151.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

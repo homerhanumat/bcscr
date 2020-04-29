@@ -18,14 +18,12 @@ side effects
 Understand why qq-plots bend the way they do.
 }
 \examples{
-\dontrun{
 ## bimodal data:
-bimodal <- c(rnorm(50, 5, 1), rnorm(50, 10, 1))
-qqExplore(bimodal)
+## bimodal <- c(rnorm(50, 5, 1), rnorm(50, 10, 1))
+## qqExplore(bimodal)
 
 ## random exponential data:
-qqExplore(rexp(300, rate = 0.2))
-}
+## qqExplore(rexp(300, rate = 0.2))
 }
 \author{
 Homer White \email{hwhite0@georgetowncollege.edu}

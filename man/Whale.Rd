@@ -65,7 +65,7 @@ oceanSim <- function(
   males = 10,
   females = 10,
   starve = 5,
-  animate = TRUE,
+  animate = FALSE,
   seed = NULL
   ) {
  if ( !is.null(seed) ) {
@@ -90,7 +90,7 @@ oceanSim <- function(
   ggplot(df, aes(x = time, y = pop)) + geom_line() +
     labs(x = "Time", y = "Whale Population")
 }
-oceanSim(males = initialMales, females = initialFemales)
+oceanSim(males = initialMales, females = initialFemales, seed = 5050)
 }
 }
 \author{

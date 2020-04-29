@@ -10,14 +10,12 @@
 #' @export
 #' @author Homer White \email{hwhite0@@georgetowncollege.edu}
 #' @examples
-#' \dontrun{
 #' ## bimodal data:
-#' bimodal <- c(rnorm(50, 5, 1), rnorm(50, 10, 1))
-#' qqExplore(bimodal)
+#' ## bimodal <- c(rnorm(50, 5, 1), rnorm(50, 10, 1))
+#' ## qqExplore(bimodal)
 #'
 #' ## random exponential data:
-#' qqExplore(rexp(300, rate = 0.2))
-#' }
+#' ## qqExplore(rexp(300, rate = 0.2))
 qqExplore <-
   function(data, options = NULL) {
     data <- sort(data)

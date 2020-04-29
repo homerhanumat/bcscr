@@ -18,14 +18,12 @@ side effects
 See how density plots are built from kernels.
 }
 \examples{
-\dontrun{
 ## small custom dataset:
-myData <- c(1, 3, 5, 6, 6.2, 7, 9)
-kdExplore(myData)
+## myData <- c(1, 3, 5, 6, 6.2, 7, 9)
+## kdExplore(myData)
 
 ## random exponential data:
-kdExplore(rexp(50, rate = 0.2))
-}
+## kdExplore(rexp(50, rate = 0.2))
 }
 \author{
 Homer White \email{hwhite0@georgetowncollege.edu}

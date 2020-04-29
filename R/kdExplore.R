@@ -10,14 +10,12 @@
 #' @export
 #' @author Homer White \email{hwhite0@@georgetowncollege.edu}
 #' @examples
-#' \dontrun{
 #' ## small custom dataset:
-#' myData <- c(1, 3, 5, 6, 6.2, 7, 9)
-#' kdExplore(myData)
+#' ## myData <- c(1, 3, 5, 6, 6.2, 7, 9)
+#' ## kdExplore(myData)
 #'
 #' ## random exponential data:
-#' kdExplore(rexp(50, rate = 0.2))
-#' }
+#' ## kdExplore(rexp(50, rate = 0.2))
 kdExplore <-
   function(data, options = NULL) {
     data <- sort(data)

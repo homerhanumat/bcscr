@@ -19,9 +19,7 @@ A turtle takes steps of a fixed length, but turns at a
 random angle after each step.
 }
 \examples{
-\dontrun{
-turtle_drunk(side = 100, step = 10)
-}
+## turtle_drunk(side = 100, step = 10)
 }
 \author{
 Homer White \email{homerhanumat@gmail.com}

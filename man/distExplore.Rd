@@ -16,9 +16,7 @@ side effects
 Manipulate parameters of a chosen distribution.
 }
 \examples{
-\dontrun{
-distExplore()
-}
+## distExplore()
 }
 \author{
 Homer White \email{hwhite0@georgetowncollege.edu}

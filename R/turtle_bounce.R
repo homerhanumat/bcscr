@@ -13,9 +13,7 @@
 #' @export
 #' @author Homer White \email{homerhanumat@gmail.com}
 #' @examples
-#' \dontrun{
-#' turtle_bounce(side = 80, step = 10)
-#' }
+#' ## turtle_bounce(side = 80, step = 10)
 turtle_bounce <- function(side = 60, step= 10) {
   if ( (side/2) %% step != 0 ) {
     stop("Side-length divided by two must be a multiple of step.")

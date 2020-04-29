@@ -12,9 +12,7 @@
 #' @export
 #' @author Homer White \email{homerhanumat@gmail.com}
 #' @examples
-#' \dontrun{
-#' turtle_drunk(side = 100, step = 10)
-#' }
+#' ## turtle_drunk(side = 100, step = 10)
 turtle_drunk <- function(side, step) {
   turtle_init(side, side, mode = "clip")
   # save (side/2, side/2), the turtle's initial position:

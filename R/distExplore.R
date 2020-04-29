@@ -9,9 +9,7 @@
 #' @export
 #' @author Homer White \email{hwhite0@@georgetowncollege.edu}
 #' @examples
-#' \dontrun{
-#' distExplore()
-#' }
+#' ## distExplore()
 distExplore <- function(options = NULL) {
 
   options(width = 900)

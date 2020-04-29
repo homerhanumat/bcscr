@@ -53,7 +53,7 @@
 #' oceanSim <- function(
 #'   steps = 100, males = 10,
 #'   females = 10, starve = 5,
-#'   animate = TRUE, seed = NULL
+#'   animate = FALSE, seed = NULL
 #'   ) {
 #'  if ( !is.null(seed) ) {
 #'    set.seed(seed)
@@ -77,7 +77,7 @@
 #'   ggplot(df, aes(x = time, y = pop)) + geom_line() +
 #'     labs(x = "Time", y = "Whale Population")
 #' }
-#' oceanSim()
+#' oceanSim(seed = 5050)
 #'}
 Ocean <- R6::R6Class("Ocean",
                      public = list(
