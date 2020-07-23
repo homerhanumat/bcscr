@@ -89,34 +89,12 @@ distExplore <- function(options = NULL) {
                     {(\\alpha + \\beta)^2(\\alpha+\\beta+1)} = ")
   )
 
-  pdf <- c(
-    "bernoulli" = "pmf:$$f(x)=\\pi^x(1-\\pi)^{1-x},\\quad x=0,1 ",
-    "binom" = "pmf:$$f(x)=\\binom{n}{x}\\pi^x(1-\\pi)^{1-x},\\quad x=0,1,\\ldots,n",
-    "hyper" = paste0("pmf:$$f(x)=\\frac{\\binom{n}{x}\\binom{m}{k-x}}",
-                     "{\\binom{n+m}{x}},\\quad x=0,1,\\ldots,k "),
-    "geom" =  "pmf:$$f(x)=(1-\\pi)^x\\pi,\\quad x = 0,1,\\ldots",
-    "nbinom" = "pmf:$$f(x)=\\binom{x+s-1}{x}\\pi^s(1-\\pi)^x,\\quad x = 0,1,\\ldots",
-    "exp" = "pdf:$$f(x)=\\lambda\\mathrm{e}^{-\\lambda x},\\quad x > 0",
-    "pois" = paste0("pmf:$$f(x)=\\mathrm{e}^{-\\lambda}",
-                    "\\frac{\\lambda^x}{x!},\\quad x = 0, 1, \\ldots"),
-    "gamma" = paste0("pdf:$$f(x)=\\frac{\\lambda^{\\alpha}x^{\\alpha - 1}",
-                     "\\mathrm{e}^{-\\lambda x}}{\\Gamma(\\alpha)},\\quad ",
-                     "x > 0"),
-    "unif" = "pdf:$$f(x) = \\frac{1}{b-a},\\quad a < x < b",
-    "norm" = paste0("pdf:$$f(x)=\\frac{1}{\\sqrt{2\\pi}\\sigma}",
-                    "\\mathrm{e}^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}",
-                    "\\quad -\\infty < x < \\infty"),
-    "beta" = paste0("pdf:$$f(x)=\\frac{\\Gamma(\\alpha+\\beta)}",
-                    "{\\Gamma(\\alpha)\\Gamma(\\beta)}",
-                    "x^{\\alpha-1}(1-x)^{\\beta - 1},",
-                    "\\quad 0 < x < 1")
-  )
 
   pdf <- c(
     "bernoulli" = "pmf:$$f(x)=\\pi^x(1-\\pi)^{1-x},\\quad x=0,1 ",
     "binom" = "pmf:$$f(x)=\\binom{n}{x}\\pi^x(1-\\pi)^{1-x},\\quad x=0,1,\\ldots,n",
     "hyper" = paste0("pmf:$$f(x)=\\frac{\\binom{m}{x}\\binom{n}{k-x}}",
-                     "{\\binom{n+m}{x}},\\quad x=0,1,\\ldots,k "),
+                     "{\\binom{n+m}{k}},\\quad x=0,1,\\ldots,k "),
     "geom" =  "pmf:$$f(x)=(1-\\pi)^x\\pi,\\quad x = 0,1,\\ldots",
     "nbinom" = "pmf:$$f(x)=\\binom{x+s-1}{x}\\pi^s(1-\\pi)^x,\\quad x = 0,1,\\ldots",
     "exp" = "pdf:$$f(x)=\\lambda\\mathrm{e}^{-\\lambda x},\\quad x > 0",
