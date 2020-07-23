@@ -38,22 +38,24 @@ distExplore <- function(options = NULL) {
   }
 
   desc <- c(
-    "bernoulli" = "One trial; count the number of successes.",
-    "binom" = "n trials, count the number of successes.",
-    "hyper" = paste0("m white balls and n black balls in an urn.  ",
-                     "Draw k balls without replacement and count the ",
-                     "number of white balls."),
+    "bernoulli" = "One trial; count the number of successes.  Chance of success is p.",
+    "binom" = "n trials, count the number of successes. Chance of success is p.",
+    "hyper" = paste0("N1 black balls and N2 white balls in an urn.  ",
+                     "Draw n balls without replacement and count the ",
+                     "number of black balls."),
     "geom" = paste0("Waiting for the first success in a Bernoulli process. ",
-                    "Count the number of failures until then."),
+                    "Count the number of trials needed."),
     "nbinom" = paste0("Waiting for s successes in a Bernoulli process. ",
-                      "Count the number of failures along the way."),
+                      "Count the number of trials needed."),
     "exp" = paste0("Waiting for the first event in a Poisson process with ",
-                   "an average of lambda events per unit time. ",
+                   "a rate of lambda events per unit time, ",
+                   "theta = 1/lambda average wait between events. ",
                    "Measure how long you wait."),
     "pois" = paste0("Count the number of events in a Poisson pocess with ",
                     "an average of lambda events per unit time. "),
-    "gamma" = paste0("Waiting for the alpha events in a Poisson process with ",
-                     "an average of lambda events per unit time. ",
+    "gamma" = paste0("Waiting for alpha events in a Poisson process with ",
+                     "a rate of lambda events per unit time, ",
+                     "theta = 1/lambda average wait between events. ",
                      "Measure how long you wait."),
     "unif" = "Any real number between the min and the max is equally likely.",
     "norm" = "Due to the Central Limit Theorem we meet this distribution a lot! ",
@@ -61,28 +63,28 @@ distExplore <- function(options = NULL) {
   )
 
   ev <- c(
-    "bernoulli" = "Expected Value:$$\\pi = ",
-    "binom" = "Expected Value:$$n\\pi = ",
-    "hyper" =  "Expected Value:$$n\\pi = ",
-    "geom" =  "Expected Value:$$\\frac{1}{\\pi} - 1 = ",
-    "nbinom" = "Expected Value:$$\\frac{s}{\\pi} - s = ",
-    "exp" = "Expected Value:$$1 / \\lambda = ",
+    "bernoulli" = "Expected Value:$$p = ",
+    "binom" = "Expected Value:$$np = ",
+    "hyper" =  "Expected Value:$$n\\frac{N_1}{N_1+N_2} = ",
+    "geom" =  "Expected Value:$$\\frac{1}{p} = ",
+    "nbinom" = "Expected Value:$$\\frac{s}{p} = ",
+    "exp" = "Expected Value:$$\\theta = ",
     "pois" = "Expected Value:$$\\lambda = ",
-    "gamma" = "Expected Value:$$\\alpha / \\lambda = ",
+    "gamma" = "Expected Value:$$\\alpha \\theta = ",
     "unif" = "Expected Value:$$\\frac{a+b}{2} = ",
     "norm" = "Expected Value:$$\\mu = ",
     "beta" = "Expected Value:$$\\frac{\\alpha}{\\alpha + \\beta} = "
   )
 
   var <- c(
-    "bernoulli" = "Variance:$$\\pi(1- \\pi) = ",
-    "binom" = "Variance:$$n\\pi(1- \\pi) = ",
-    "hyper" =  "Variance:$$n\\pi(1- \\pi)\\frac{m+n - k}{m+n-1} = ",
-    "geom" =  "Variance:$$\\frac{1-\\pi}{\\pi^2} = ",
-    "nbinom" = "Variance:$$\\frac{s(1-\\pi)}{\\pi^2} = ",
-    "exp" = "Variance:$$1/\\lambda^2 = ",
+    "bernoulli" = "Variance:$$p(1- p) = ",
+    "binom" = "Variance:$$np(1- p) = ",
+    "hyper" =  "Variance:$$np(1- p)\\frac{N_1+N_2 - n}{N_1+N_2-1} = ",
+    "geom" =  "Variance:$$\\frac{1-p}{p^2} = ",
+    "nbinom" = "Variance:$$\\frac{s(1-p)}{p^2} = ",
+    "exp" = "Variance:$$\\theta^2 = ",
     "pois" = "Variance:$$\\lambda = ",
-    "gamma" = "Variance:$$\\alpha /\\lambda^2 = ",
+    "gamma" = "Variance:$$\\alpha \\theta^2 = ",
     "unif" = "Variance:$$\\frac{(b - a)^2}{12} = ",
     "norm" = "Variance:$$\\sigma^2 = ",
     "beta" = paste0("Variance:$$\\frac{\\alpha\\beta}","
@@ -91,17 +93,17 @@ distExplore <- function(options = NULL) {
 
 
   pdf <- c(
-    "bernoulli" = "pmf:$$f(x)=\\pi^x(1-\\pi)^{1-x},\\quad x=0,1 ",
-    "binom" = "pmf:$$f(x)=\\binom{n}{x}\\pi^x(1-\\pi)^{1-x},\\quad x=0,1,\\ldots,n",
-    "hyper" = paste0("pmf:$$f(x)=\\frac{\\binom{m}{x}\\binom{n}{k-x}}",
-                     "{\\binom{n+m}{k}},\\quad x=0,1,\\ldots,k "),
-    "geom" =  "pmf:$$f(x)=(1-\\pi)^x\\pi,\\quad x = 0,1,\\ldots",
-    "nbinom" = "pmf:$$f(x)=\\binom{x+s-1}{x}\\pi^s(1-\\pi)^x,\\quad x = 0,1,\\ldots",
-    "exp" = "pdf:$$f(x)=\\lambda\\mathrm{e}^{-\\lambda x},\\quad x > 0",
+    "bernoulli" = "pmf:$$f(x)=p^x(1-p)^{1-x},\\quad x=0,1 ",
+    "binom" = "pmf:$$f(x)=\\binom{n}{x}p^x(1-p)^{1-x},\\quad x=0,1,\\ldots,n",
+    "hyper" = paste0("pmf:$$f(x)=\\frac{\\binom{N_1}{x}\\binom{N_2}{n-x}}",
+                     "{\\binom{N_1+N_2}{n}},\\quad x=0,1,\\ldots,n "),
+    "geom" =  "pmf:$$f(x)=(1-p)^{x-1}p,\\quad x = 1,2,\\ldots",
+    "nbinom" = "pmf:$$f(x)=\\binom{x-1}{s-1}p^s(1-p)^x,\\quad x = s,s+1,\\ldots",
+    "exp" = "pdf:$$f(x)=\\frac{1}{\\theta}\\mathrm{e}^{-x/\\theta},\\quad x > 0",
     "pois" = paste0("pmf:$$f(x)=\\mathrm{e}^{-\\lambda}",
                     "\\frac{\\lambda^x}{x!},\\quad x = 0, 1, \\ldots"),
-    "gamma" = paste0("pdf:$$f(x)=\\frac{\\lambda^{\\alpha}x^{\\alpha - 1}",
-                     "\\mathrm{e}^{-\\lambda x}}{\\Gamma(\\alpha)},\\quad ",
+    "gamma" = paste0("pdf:$$f(x)=\\frac{x^{\\alpha - 1}",
+                     "\\mathrm{e}^{-\\lambda x}}{\\Gamma(\\alpha)\\theta^{\\alpha}},\\quad ",
                      "x > 0"),
     "unif" = "pdf:$$f(x) = \\frac{1}{b-a},\\quad a < x < b",
     "norm" = paste0("pdf:$$f(x)=\\frac{1}{\\sqrt{2\\pi}\\sigma}",
@@ -114,28 +116,28 @@ distExplore <- function(options = NULL) {
   )
 
   cdf <- c(
-    "geom" =  "cdf:$$F(x)=1 - (1-\\pi)^{\\left \\lfloor x\\right \\rfloor +1}",
-    "exp" = "cdf:$$F(x)=1-{e}^{-\\lambda x}"
+    "geom" =  "cdf:$$F(x)=1 - (1-p)^{\\left \\lfloor x\\right \\rfloor}",
+    "exp" = "cdf:$$F(x)=1-\\mathrm{e}^{-x/\\theta}"
   )
 
   mgf <- c(
-    "bernoulli" = "mgf:$$M(t)=(1-\\pi)+\\pi\\mathrm{e}^t,\\quad -\\infty < t < \\infty",
-    "binom" = paste0("mgf:$$M(t)=\\left((1-\\pi)+\\pi\\mathrm{e}^t\\right)^n,",
+    "bernoulli" = "mgf:$$M(t)=(1-p)+p\\mathrm{e}^t,\\quad -\\infty < t < \\infty",
+    "binom" = paste0("mgf:$$M(t)=\\left((1-p)+p\\mathrm{e}^t\\right)^n,",
                      "\\quad -\\infty < t < \\infty"),
-    "geom" =  paste0("mgf:$$M(t)=\\frac{\\pi}{1-\\mathrm{e}^t(1-\\pi)},",
-                     "\\quad t < \\ln \\frac{1}{1-\\pi}"),
-    "nbinom" = paste0("mgf:$$M(t)=\\left(\\frac{\\pi}",
-                      "{1-\\mathrm{e}^t(1-\\pi)}\\right)^s,",
-                      "\\quad t < \\ln \\frac{1}{1-\\pi}"),
-    "exp" = paste0("mgf:$$M(t)=\\frac{\\lambda}{\\lambda - t},",
-                   "\\quad \\lvert t\\rvert < \\lambda"),
+    "geom" =  paste0("mgf:$$M(t)=\\frac{p\\mathrm{e}^t}{1-(1-p)\\mathrm{e}^t},",
+                     "\\quad t < -\\ln p"),
+    "nbinom" = paste0("mgf:$$M(t)=\\left(\\frac{p\\mathrm{e}^t}",
+                      "{1-(1-p)\\mathrm{e}^t}\\right)^s,",
+                      "\\quad t < -\\ln p"),
+    "exp" = paste0("mgf:$$M(t)=\\frac{1}{1-\\theta t},",
+                   "\\quad \\lvert t\\rvert < \\frac{1}{\\theta}"),
     "pois" = paste0("mgf:$$M(t)=\\mathrm{e}^{\\lambda \\mathrm{e}^{\\mathrm{e}^t - 1}},",
                     "\\quad -\\infty < t < \\infty"),
-    "gamma" = paste0("mgf:$$M(t)=\\left(\\frac{\\lambda}",
-                     "{\\lambda - t}\\right)^{\\alpha},",
-                     "\\quad \\lvert t\\rvert < \\lambda"),
-    "unif" = paste0("mgf:$$M(t) =\\left(\\mathrm{e}^{bt}-\\mathrm{e}^{at}",
-                    "\\right)/(t(b-a)),",
+    "gamma" = paste0("mgf:$$M(t)=\\left(\\frac{1}",
+                     "{1 - \\theta t}\\right)^{\\alpha},",
+                     "\\quad \\lvert t\\rvert < \\frac{1}{\\theta}"),
+    "unif" = paste0("mgf:$$M(t) =\\frac{\\mathrm{e}^{bt}-\\mathrm{e}^{at}",
+                    "}{t(b-a)},",
                     "\\quad -\\infty < t < \\infty"),
     "norm" = paste0("mgf:$$M(t)=\\mathrm{e}^{\\mu t + \\sigma^2 t^2 / 2},",
                     "\\quad -\\infty < t < \\infty")
@@ -171,6 +173,16 @@ distExplore <- function(options = NULL) {
                     ),
                     selectize = FALSE,
                     size = 11, width = sideWidth),
+        tags$head(
+          tags$style(HTML("
+
+      #description {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+    "))
+        ),
         uiOutput("description")
       ),
       dashboardBody(
@@ -274,12 +286,12 @@ distExplore <- function(options = NULL) {
       }
       if (isolate(rv$dist) == "nbinom") {
         rv$params  <- list(size = input$size, prob = input$prob)
-        rv$ev <- input$size  / input$prob - input$size
+        rv$ev <- input$size  / input$prob
         rv$var <- (input$size*(1 - input$prob))/ input$prob^2
       }
       if (isolate(rv$dist)  == "geom") {
         rv$params  <- list(prob = input$prob)
-        rv$ev <- 1 / input$prob - 1
+        rv$ev <- 1 / input$prob
         rv$var <- (1 - input$prob)/ input$prob^2
       }
       if (isolate(rv$dist)  == "bernoulli") {
@@ -337,7 +349,7 @@ distExplore <- function(options = NULL) {
                           min = 1, max = 100, value = 3, step = 1)
             ),
             alignCenter(
-              sliderInput(inputId = "prob", label = "Probability of Success (pi, prob)",
+              sliderInput(inputId = "prob", label = "Probability of Success (p, prob)",
                           min = 0.01, max = 0.99, value = 0.20, step = 0.01)
             )
           )
@@ -352,7 +364,7 @@ distExplore <- function(options = NULL) {
                           min = 1, max = 1000, value = 100, step = 1)
             ),
             alignCenter(
-              sliderInput(inputId = "prob", label = "Probability of Success (pi, prob)",
+              sliderInput(inputId = "prob", label = "Probability of Success (p, prob)",
                           min = 0.01, max = 0.99, value = 0.50, step = 0.01)
             )
           )
@@ -362,7 +374,7 @@ distExplore <- function(options = NULL) {
         return(
           tagList(
             alignCenter(
-              sliderInput(inputId = "prob", label = "Probability of Success (pi, prob)",
+              sliderInput(inputId = "prob", label = "Probability of Success (p, prob)",
                           min = 0.01, max = 0.99, value = 0.20, step = 0.01)
             )
           )
@@ -372,7 +384,7 @@ distExplore <- function(options = NULL) {
         return(
           tagList(
             alignCenter(
-              sliderInput(inputId = "prob", label = "Probability of Success (pi)",
+              sliderInput(inputId = "prob", label = "Probability of Success (p)",
                           min = 0.01, max = 0.99, value = 0.50, step = 0.01)
             )
           )
@@ -455,15 +467,15 @@ distExplore <- function(options = NULL) {
         return(
           tagList(
             alignCenter(
-              sliderInput(inputId = "m", label = "White Balls (m)",
+              sliderInput(inputId = "m", label = "Black Balls (N1)",
                           min = 1, max = 100, value = 50, step = 1)
             ),
             alignCenter(
-              sliderInput(inputId = "n", label = "Black Balls (n)",
+              sliderInput(inputId = "n", label = "White Balls (N2)",
                           min = 1, max = 100, value = 50, step = 1)
             ),
             alignCenter(
-              sliderInput(inputId = "k", label = "Balls to Draw (k)",
+              sliderInput(inputId = "k", label = "Balls to Draw (n)",
                           min = 1, max = 100, value = 20, step = 1)
             )
           )
@@ -503,7 +515,13 @@ distExplore <- function(options = NULL) {
         if (rv$type == "discrete") {
           title <- "Probability Mass Function"
           yLab = "probability"
-          x <- xlims[1]:xlims[2]
+          if (dist == "geom") {
+            x <- xlims[1]:xlims[2] + 1
+          } else if (dist == "nbinom") {
+            x <- xlims[1]:xlims[2] + input$size
+          } else {
+            x <- xlims[1]:xlims[2]
+          }
         } else {
           title <- "Probability Density Function"
           yLab <- "density"
@@ -540,6 +558,11 @@ distExplore <- function(options = NULL) {
         yLab = "probability"
         xlims <- findLimits(paste0("q", dist), params)
         x <- seq(xlims[1], xlims[2], length.out = 1001)
+        if (dist == "geom") {
+          x <- x + 1
+        } else if (dist == "nbinom") {
+          x <- x + input$size
+        }
         y <- do.call(paste0("p", dist), c(list(q = x), params))
         df <- data.frame(x = x, y = y)
         p <- ggplot(df, aes(x = x, y = y)) +
