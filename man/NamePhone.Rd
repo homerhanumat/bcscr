@@ -4,7 +4,9 @@
 \name{NamePhone}
 \alias{NamePhone}
 \title{Names and Phone Numbers}
-\format{A data frame with 50 rows and 2 variables}
+\format{
+A data frame with 50 rows and 2 variables
+}
 \description{
 Sample data for regular expression practice.
 

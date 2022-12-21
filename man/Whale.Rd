@@ -6,7 +6,9 @@
 \alias{Female}
 \alias{Male}
 \title{Whales in an Ocean}
-\format{\code{\link{R6Class}} object.}
+\format{
+\code{\link{R6Class}} object.
+}
 \value{
 Object of \code{\link{R6Class}} with methods for simulation.
 }
@@ -100,13 +102,14 @@ Homer White \email{homerhanumat@gmail.com}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Whale$new()}}
-\item \href{#method-move}{\code{Whale$move()}}
-\item \href{#method-clone}{\code{Whale$clone()}}
+\item \href{#method-Whale-new}{\code{Whale$new()}}
+\item \href{#method-Whale-move}{\code{Whale$move()}}
+\item \href{#method-Whale-clone}{\code{Whale$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
+\if{html}{\out{<a id="method-Whale-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Whale-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Whale$new(
@@ -121,7 +124,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-move"></a>}}
+\if{html}{\out{<a id="method-Whale-move"></a>}}
+\if{latex}{\out{\hypertarget{method-Whale-move}{}}}
 \subsection{Method \code{move()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Whale$move(dims, r = self$stepSize)}\if{html}{\out{</div>}}
@@ -129,7 +133,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
+\if{html}{\out{<a id="method-Whale-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Whale-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
@@ -151,19 +156,20 @@ The objects of this class are cloneable with this method.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-clone}{\code{Male$clone()}}
+\item \href{#method-Male-clone}{\code{Male$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="initialize">}\href{../../bcscr/html/Whale.html#method-initialize}{\code{bcscr::Whale$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="move">}\href{../../bcscr/html/Whale.html#method-move}{\code{bcscr::Whale$move()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="initialize"><a href='../../bcscr/html/Whale.html#method-Whale-initialize'><code>bcscr::Whale$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="move"><a href='../../bcscr/html/Whale.html#method-Whale-move'><code>bcscr::Whale$move()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
+\if{html}{\out{<a id="method-Male-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Male-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
@@ -185,21 +191,22 @@ The objects of this class are cloneable with this method.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-maleNear}{\code{Female$maleNear()}}
-\item \href{#method-mate}{\code{Female$mate()}}
-\item \href{#method-clone}{\code{Female$clone()}}
+\item \href{#method-Female-maleNear}{\code{Female$maleNear()}}
+\item \href{#method-Female-mate}{\code{Female$mate()}}
+\item \href{#method-Female-clone}{\code{Female$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="initialize">}\href{../../bcscr/html/Whale.html#method-initialize}{\code{bcscr::Whale$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="move">}\href{../../bcscr/html/Whale.html#method-move}{\code{bcscr::Whale$move()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="initialize"><a href='../../bcscr/html/Whale.html#method-Whale-initialize'><code>bcscr::Whale$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="bcscr" data-topic="Whale" data-id="move"><a href='../../bcscr/html/Whale.html#method-Whale-move'><code>bcscr::Whale$move()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-maleNear"></a>}}
+\if{html}{\out{<a id="method-Female-maleNear"></a>}}
+\if{latex}{\out{\hypertarget{method-Female-maleNear}{}}}
 \subsection{Method \code{maleNear()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Female$maleNear(males, dist)}\if{html}{\out{</div>}}
@@ -207,7 +214,8 @@ The objects of this class are cloneable with this method.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-mate"></a>}}
+\if{html}{\out{<a id="method-Female-mate"></a>}}
+\if{latex}{\out{\hypertarget{method-Female-mate}{}}}
 \subsection{Method \code{mate()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Female$mate()}\if{html}{\out{</div>}}
@@ -215,7 +223,8 @@ The objects of this class are cloneable with this method.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
+\if{html}{\out{<a id="method-Female-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Female-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

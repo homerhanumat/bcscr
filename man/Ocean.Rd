@@ -4,7 +4,9 @@
 \name{Ocean}
 \alias{Ocean}
 \title{Whales in an Ocean}
-\format{\code{\link{R6Class}} object.}
+\format{
+\code{\link{R6Class}} object.
+}
 \value{
 Object of \code{\link{R6Class}} with methods for simulation.
 }
@@ -94,16 +96,17 @@ Homer White \email{homerhanumat@gmail.com}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-distance}{\code{Ocean$distance()}}
-\item \href{#method-new}{\code{Ocean$new()}}
-\item \href{#method-starvationProbability}{\code{Ocean$starvationProbability()}}
-\item \href{#method-advance}{\code{Ocean$advance()}}
-\item \href{#method-plot}{\code{Ocean$plot()}}
-\item \href{#method-clone}{\code{Ocean$clone()}}
+\item \href{#method-Ocean-distance}{\code{Ocean$distance()}}
+\item \href{#method-Ocean-new}{\code{Ocean$new()}}
+\item \href{#method-Ocean-starvationProbability}{\code{Ocean$starvationProbability()}}
+\item \href{#method-Ocean-advance}{\code{Ocean$advance()}}
+\item \href{#method-Ocean-plot}{\code{Ocean$plot()}}
+\item \href{#method-Ocean-clone}{\code{Ocean$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-distance"></a>}}
+\if{html}{\out{<a id="method-Ocean-distance"></a>}}
+\if{latex}{\out{\hypertarget{method-Ocean-distance}{}}}
 \subsection{Method \code{distance()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$distance(a, b)}\if{html}{\out{</div>}}
@@ -111,7 +114,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
+\if{html}{\out{<a id="method-Ocean-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Ocean-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$new(dims = c(100, 100), males = 10, females = 10, starve = 5)}\if{html}{\out{</div>}}
@@ -119,7 +123,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-starvationProbability"></a>}}
+\if{html}{\out{<a id="method-Ocean-starvationProbability"></a>}}
+\if{latex}{\out{\hypertarget{method-Ocean-starvationProbability}{}}}
 \subsection{Method \code{starvationProbability()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$starvationProbability(popDensity)}\if{html}{\out{</div>}}
@@ -127,7 +132,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-advance"></a>}}
+\if{html}{\out{<a id="method-Ocean-advance"></a>}}
+\if{latex}{\out{\hypertarget{method-Ocean-advance}{}}}
 \subsection{Method \code{advance()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$advance()}\if{html}{\out{</div>}}
@@ -135,7 +141,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-plot"></a>}}
+\if{html}{\out{<a id="method-Ocean-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-Ocean-plot}{}}}
 \subsection{Method \code{plot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$plot()}\if{html}{\out{</div>}}
@@ -143,7 +150,8 @@ Homer White \email{homerhanumat@gmail.com}
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
+\if{html}{\out{<a id="method-Ocean-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Ocean-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
