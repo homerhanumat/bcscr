@@ -17,4 +17,5 @@ Functions and datasets to accompany the text Beginning Computer Science with R
 \author{
 Homer White (\email{homerhanumat@gmail.com})
 }
+\keyword{internal}
 \keyword{package}

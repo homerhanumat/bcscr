@@ -102,7 +102,7 @@ NA
 #' http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf
 #'
 #' @examples
-#' data(RailTrail)
+#' data(railtrail)
 #'
 
 NA

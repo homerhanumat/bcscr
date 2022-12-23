@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://github.com/homerhanumat/bcscr/404.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/homerhanumat/bcscr/authors.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/homerhanumat/bcscr/index.html</loc>
   </url>
   <url>
@@ -37,6 +43,9 @@
     <loc>https://github.com/homerhanumat/bcscr/reference/fuel.html</loc>
   </url>
   <url>
+    <loc>https://github.com/homerhanumat/bcscr/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/homerhanumat/bcscr/reference/kdExplore.html</loc>
   </url>
   <url>
@@ -47,6 +56,9 @@
   </url>
   <url>
     <loc>https://github.com/homerhanumat/bcscr/reference/qqExplore.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/homerhanumat/bcscr/reference/railtrail.html</loc>
   </url>
   <url>
     <loc>https://github.com/homerhanumat/bcscr/reference/triangleSim.html</loc>

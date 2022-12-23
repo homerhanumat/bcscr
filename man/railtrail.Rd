@@ -41,7 +41,7 @@ would only logs one of the crossings.  The collectors left the motion detector o
 counter drops data when the temperature falls below 14 degrees Fahrenheit, there is no data for the cold winter months.
 }
 \examples{
-data(RailTrail)
+data(railtrail)
 
 }
 \references{
