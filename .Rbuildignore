@@ -6,3 +6,6 @@ sandbox
 README.Rmd
 README.html
 processing.R
+downloads
+.DS_Store
+
