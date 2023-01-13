@@ -1,7 +1,7 @@
 Package: bcscr
 Type: Package
 Title: Beginning Computer Science with R
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person("Homer", "White",
            email = "homerhanumat@gmail.com", 
@@ -10,6 +10,7 @@ Maintainer: Homer White <homerhanumat@gmail.com>
 Description: Functions and datasets to accompany the text Beginning 
     Computer Science with R (https://homerhanumat.github.io/r-notes).
 Imports:
+    data.tree,
     ggplot2,
     ggExtra,
     TurtleGraphics,
@@ -18,6 +19,7 @@ Imports:
     shiny,
     shinydashboard,
     htmltools
+Suggests: DiagrammeR
 License: GPL (>=3)
 Encoding: UTF-8
 NeedsCompilation: no
