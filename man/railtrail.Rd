@@ -7,15 +7,15 @@
 \format{
 A data frame with 90 observations on the following variables.
   \itemize{
-    \item{\code{hightemp}} {daily high temperature (in degrees Fahrenheit)}
-    \item{\code{lowtemp}} {daily low temperature (in degrees Fahrenheit)}
-    \item{\code{avgtemp}} {average of daily low and daily high temperature (in degrees Fahrenheit)}
-    \item{\code{season}} {spring, summer or fall}
-    \item{\code{cloudcover}} {measure of cloud cover (in oktas)}
-    \item{\code{precip}} {measure of precipitation (in inches)}
-    \item{\code{volume}} {estimated number of trail users that day (number of breaks recorded)}
-    \item{\code{weekday}} {logical indicator of whether the day was a non-holiday weekday}
-    \item{\code{dayType}} {one of "weekday" or "weekend"}
+    \item hightemp daily high temperature (in degrees Fahrenheit)
+    \item lowtemp daily low temperature (in degrees Fahrenheit)
+    \item avgtemp average of daily low and daily high temperature (in degrees Fahrenheit)
+    \item season spring, summer or fall
+    \item cloudcover measure of cloud cover (in oktas)
+    \item precip measure of precipitation (in inches)
+    \item volume estimated number of trail users that day (number of breaks recorded)
+    \item weekday logical indicator of whether the day was a non-holiday weekday
+    \item dayType one of "weekday" or "weekend"
   }
 }
 \source{

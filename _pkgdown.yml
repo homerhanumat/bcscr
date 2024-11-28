@@ -18,6 +18,7 @@ reference:
       - turtle_bounce
       - turtle_drunk
       - make_val_tree
+      - ozLookup
   - title: "Whales in the Ocean"
     desc: "R6 objects for simulating whales in an ocean."
     contents:

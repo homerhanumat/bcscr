@@ -4,8 +4,8 @@
 #'
 #'
 #' @name bcscr-package
-#' @aliases bcscr bcscr-package
 #' @docType package
+#' @aliases bcscr bcscr-package
 #' @title Beginning Computer Science with R
 #' @author Homer White (\email{homerhanumat@gmail.com})
 #' @references

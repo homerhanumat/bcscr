@@ -11,6 +11,10 @@
 }
 \value{
 Object of \code{\link{R6Class}} with methods for simulation.
+
+Boolean
+
+sex of the resulting baby
 }
 \description{
 R6 Objects for modelling a whale.  Female and Male
@@ -18,23 +22,6 @@ inherit from whale.  Use Female and Male  if you want to
 provide custom lists of male and female whales when you instantiate
 an ocean.
 }
-\section{Methods}{
-
-\itemize{
-\item{\code{new}: }{Instantiates an Whale object.  Parameters are:}
-\itemize{
-\item{\code{position}: }{A numeric vector of length 2 giving the initial
-position.  (Make sure that it's within the dimensions of the ocean.)}
-\item{\code{age}: }{Initial age of the whale.}
-\item{\code{lifespan}: }{Lifespan of the whale.}
-\item{\code{range}: }{Distance at which a female can detect an
-eligible male.}
-\item{\code{maturity}: }{Age of whale at which reproduction is possible.}
-\item{\code{stepSize}: }{Number of units the whale move sin each gneration.}
-}
-}
-}
-
 \examples{
 \dontrun{
 initialMales <- vector(mode = "list", length = 10)
@@ -99,6 +86,29 @@ oceanSim(males = initialMales, females = initialFemales, seed = 5050)
 Homer White \email{homerhanumat@gmail.com}
 }
 \keyword{data}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{position}}{A numeric vector of length 2 giving the
+ initial
+position.  (Make sure that it's within the
+dimensions of the ocean.)}
+
+\item{\code{age}}{initial age of the whale}
+
+\item{\code{lifespan}}{lifespan of the whale}
+
+\item{\code{range}}{Distance at which a female can detect an
+eligible male.}
+
+\item{\code{maturity}}{Age of whale at which reproduction
+is possible.}
+
+\item{\code{stepSize}}{Number of units the whale moves
+in each generation.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -111,6 +121,7 @@ Homer White \email{homerhanumat@gmail.com}
 \if{html}{\out{<a id="method-Whale-new"></a>}}
 \if{latex}{\out{\hypertarget{method-Whale-new}{}}}
 \subsection{Method \code{new()}}{
+initialize a `Whale`.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Whale$new(
   position = NA,
@@ -122,15 +133,45 @@ Homer White \email{homerhanumat@gmail.com}
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{position}}{position of whale}
+
+\item{\code{age}}{age of whale}
+
+\item{\code{lifespan}}{lifespan of whale}
+
+\item{\code{range}}{range of whale}
+
+\item{\code{maturity}}{how old whale must be in order to mate}
+
+\item{\code{stepSize}}{how far whale moves in one step}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a new `Whale` object
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Whale-move"></a>}}
 \if{latex}{\out{\hypertarget{method-Whale-move}{}}}
 \subsection{Method \code{move()}}{
+move a whale
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Whale$move(dims, r = self$stepSize)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{dims}}{dimensions of the ocean}
+
+\item{\code{r}}{how far the whale wants to move}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Whale-clone"></a>}}
@@ -152,6 +193,13 @@ The objects of this class are cloneable with this method.
 }
 \section{Super class}{
 \code{\link[bcscr:Whale]{bcscr::Whale}} -> \code{Male}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{sex}}{sex of the whale}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -188,6 +236,18 @@ The objects of this class are cloneable with this method.
 \section{Super class}{
 \code{\link[bcscr:Whale]{bcscr::Whale}} -> \code{Female}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{sex}}{sex of the whale}
+
+\item{\code{timeToFertility}}{how long until whale can breed}
+
+\item{\code{infertilityPeriod}}{number of steps until a female
+can breed again after having borne a child}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -208,15 +268,26 @@ The objects of this class are cloneable with this method.
 \if{html}{\out{<a id="method-Female-maleNear"></a>}}
 \if{latex}{\out{\hypertarget{method-Female-maleNear}{}}}
 \subsection{Method \code{maleNear()}}{
+determine whether a male is near
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Female$maleNear(males, dist)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{males}}{the males in the ocean}
+
+\item{\code{dist}}{the distance-fidning function}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Female-mate"></a>}}
 \if{latex}{\out{\hypertarget{method-Female-mate}{}}}
 \subsection{Method \code{mate()}}{
+make female whale mate
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Female$mate()}\if{html}{\out{</div>}}
 }

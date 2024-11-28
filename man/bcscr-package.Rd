@@ -14,6 +14,13 @@ Functions and datasets to accompany the text Beginning Computer Science with R
 \references{
 \url{https://homerhanumat.github.io/r-notes}
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/homerhanumat/bcscr}
+}
+
+}
 \author{
 Homer White (\email{homerhanumat@gmail.com})
 }

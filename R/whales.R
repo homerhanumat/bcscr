@@ -14,20 +14,6 @@
 #' @return Object of \code{\link{R6Class}} with methods for simulation.
 #' @export
 #' @author Homer White \email{homerhanumat@gmail.com}
-#' @section Methods:
-#' \itemize{
-#' \item{\code{new}: }{Instantiates an Whale object.  Parameters are:}
-#' \itemize{
-#' \item{\code{position}: }{A numeric vector of length 2 giving the initial
-#' position.  (Make sure that it's within the dimensions of the ocean.)}
-#' \item{\code{age}: }{Initial age of the whale.}
-#' \item{\code{lifespan}: }{Lifespan of the whale.}
-#' \item{\code{range}: }{Distance at which a female can detect an
-#' eligible male.}
-#' \item{\code{maturity}: }{Age of whale at which reproduction is possible.}
-#' \item{\code{stepSize}: }{Number of units the whale move sin each gneration.}
-#' }
-#' }
 #' @examples
 #' \dontrun{
 #' initialMales <- vector(mode = "list", length = 10)
@@ -89,12 +75,33 @@
 #'}
 Whale <- R6::R6Class("Whale",
                  public = list(
+                   #' @field position A numeric vector of length 2 giving the
+                   #'  initial
+                   #' position.  (Make sure that it's within the
+                   #' dimensions of the ocean.)
                    position = NULL,
+                   #' @field age initial age of the whale
                    age = NULL,
+                   #' @field lifespan lifespan of the whale
                    lifespan = NULL,
+                   #' @field range Distance at which a female can detect an
+                   #' eligible male.
                    range = NULL,
+                   #' @field maturity Age of whale at which reproduction
+                   #' is possible.
                    maturity = NULL,
+                   #' @field stepSize Number of units the whale moves
+                   #'  in each generation.
                    stepSize = NULL,
+                   #' @description
+                   #' initialize a `Whale`.
+                   #' @param position position of whale
+                   #' @param age age of whale
+                   #' @param lifespan lifespan of whale
+                   #' @param range range of whale
+                   #' @param maturity how old whale must be in order to mate
+                   #' @param stepSize how far whale moves in one step
+                   #' @return a new `Whale` object
                    initialize = function(position = NA, age = 3,
                                          lifespan = 40, range = 5,
                                          maturity = 10, stepSize = 5) {
@@ -104,24 +111,26 @@ Whale <- R6::R6Class("Whale",
                      self$range <- range
                      self$maturity <- maturity
                      self$stepSize <- stepSize
+                   },
+                   #' @description
+                   #' move a whale
+                   #' @param dims dimensions of the ocean
+                   #' @param r how far the whale wants to move
+                   move = function(dims, r = self$stepSize) {
+                     xMax <- dims[1]
+                     yMax <- dims[2]
+                     repeat {
+                       theta <- runif(1, min = 0, max = 2*pi)
+                       p <- self$position + r * c(cos(theta), sin(theta))
+                       within <- (p[1] > 0 && p[1] < xMax) && (p[2] > 0 && p[2] < yMax)
+                       if ( within ) {
+                         self$position <- p
+                         break
+                       }
+                     }
                    }
                  ))
 
-Whale$set("public",
-          "move",
-          function(dims, r = self$stepSize) {
-            xMax <- dims[1]
-            yMax <- dims[2]
-            repeat {
-              theta <- runif(1, min = 0, max = 2*pi)
-              p <- self$position + r * c(cos(theta), sin(theta))
-              within <- (p[1] > 0 && p[1] < xMax) && (p[2] > 0 && p[2] < yMax)
-              if ( within ) {
-                self$position <- p
-                break
-              }
-            }
-          }, overwrite = TRUE)
 
 #' @rdname Whale
 #' @name Male
@@ -129,6 +138,7 @@ Whale$set("public",
 Male <- R6::R6Class("Male",
                 inherit = Whale,
                 public = list(
+                  #' @field sex sex of the whale
                   sex = "male"
                 ))
 #' @rdname Whale
@@ -137,31 +147,37 @@ Male <- R6::R6Class("Male",
 Female <- R6::R6Class("Female",
                   inherit = Whale,
                   public = list(
+                    #' @field sex sex of the whale
                     sex = "female",
+                    #' @field timeToFertility how long until whale can breed
                     timeToFertility = 0,
-                    infertilityPeriod = 5
+                    #' @field infertilityPeriod number of steps until a female
+                    #' can breed again after having borne a child
+                    infertilityPeriod = 5,
+                    #' @description
+                    #' determine whether a male is near
+                    #' @param males the males in the ocean
+                    #' @param dist the distance-fidning function
+                    #' @returns Boolean
+                    maleNear = function(males, dist) {
+                      foundOne <- FALSE
+                      for ( male in males ) {
+                        near <- dist(male$position, self$position) < self$range
+                        mature <- (male$age >= male$maturity)
+                        if ( near && mature ) {
+                          foundOne <- TRUE
+                          break
+                        }
+                      }
+                      foundOne
+                    },
+                    #' @description
+                    #' make female whale mate
+                    #' @returns sex of the resulting baby
+                    mate = function() {
+                      babySex <- sample(c("female", "male"), size = 1)
+                      self$timeToFertility <- self$infertilityPeriod
+                      return(babySex)
+                    }
                   ))
-
-Female$set("public",
-           "maleNear",
-           function(males, dist) {
-             foundOne <- FALSE
-             for ( male in males ) {
-               near <- dist(male$position, self$position) < self$range
-               mature <- (male$age >= male$maturity)
-               if ( near && mature ) {
-                 foundOne <- TRUE
-                 break
-               }
-             }
-             foundOne
-           }, overwrite = TRUE)
-
-Female$set("public",
-           "mate",
-           function() {
-             babySex <- sample(c("female", "male"), size = 1)
-             self$timeToFertility <- self$infertilityPeriod
-             return(babySex)
-           }, overwrite = TRUE)
 

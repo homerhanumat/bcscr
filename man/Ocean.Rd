@@ -13,49 +13,6 @@ Object of \code{\link{R6Class}} with methods for simulation.
 \description{
 R6 Object for simulating a population of whales.
 }
-\section{Properties}{
-
-\itemize{
-\item{\code{dimensions}: }{A vector of length two giving the
-dimensions of the ocean.}
-\item{\code{males}: }{A list of R6 objects of class Male
-containing the current population of male whales.}
-\item{\code{females}: }{A list of R6 objects of class Female
-containing the current population of female whales.}
-\item{\code{malePop}: }{Current number of males in the population.}
-\item{\code{femalePop}: }{Current number of females in the population.}
-\item{\code{starveParameter}: }{Helps determine probability for each
-whale to die by starvation in the current generation.}
-\item{\code{distance}: }{Computes distance between any two whales.}
-}
-}
-
-\section{Methods}{
-
-\itemize{
-\item{\code{new}: }{Instantiates an Ocean object.  Parameters are:}
-\itemize{
-\item{\code{dims}: }{A numeric vector of length 2 setting the length
-and width
- of the ocean.}
-\item{\code{males}: }{An integer giving the number of males (to be
-created with
-defaults) or a list of \code{\link{Male}} whale objects.}
-\item{\code{females}: }{An integer giving the number of females (to be
-created with
-defaults) or a list of \code{\link{Female}} whale objects.}
-\item{\code{starve}: }{A non-negative number, used to determine
-probability that an individual starves in a given
-generation. The larger the
-value, the lower the carrying-capacity of the population
-will be.}
-}
-\item{\code{advance}: }{Advances the simulation by one generation.
-Takes no arguments.}
-\item{\code{plot}: }{Plots the current population.  Takes no arguments.}
-}
-}
-
 \examples{
 \dontrun{
 library(ggplot2)
@@ -93,6 +50,30 @@ oceanSim(seed = 5050)
 Homer White \email{homerhanumat@gmail.com}
 }
 \keyword{data}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{dimensions}}{A vector of length two giving the
+dimensions of the ocean.}
+
+\item{\code{males}}{A list of R6 objects of class Male
+containing the current population of male whales.}
+
+\item{\code{females}}{A list of R6 objects of class Female
+containing the current population of female whales.}
+
+\item{\code{malePop}}{Current number of males
+in the population.}
+
+\item{\code{femalePop}}{Current number of females
+in the population.}
+
+\item{\code{starveParameter}}{Helps determine probability
+for each
+whale to die by starvation in the current generation.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -108,46 +89,96 @@ Homer White \email{homerhanumat@gmail.com}
 \if{html}{\out{<a id="method-Ocean-distance"></a>}}
 \if{latex}{\out{\hypertarget{method-Ocean-distance}{}}}
 \subsection{Method \code{distance()}}{
+Compute distance between two whales.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$distance(a, b)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{a}}{one whale}
+
+\item{\code{b}}{another whale}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A number
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Ocean-new"></a>}}
 \if{latex}{\out{\hypertarget{method-Ocean-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new Ocean object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$new(dims = c(100, 100), males = 10, females = 10, starve = 5)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{dims}}{numerical vector of length 2 giving
+the dimensions of the ocean}
+
+\item{\code{males}}{initial number of males}
+
+\item{\code{females}}{initial number of females}
+
+\item{\code{starve}}{the starvation parameter}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new `Ocean` object.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Ocean-starvationProbability"></a>}}
 \if{latex}{\out{\hypertarget{method-Ocean-starvationProbability}{}}}
 \subsection{Method \code{starvationProbability()}}{
+Compute the starvation probability.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$starvationProbability(popDensity)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{popDensity}}{population density}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a number.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Ocean-advance"></a>}}
 \if{latex}{\out{\hypertarget{method-Ocean-advance}{}}}
 \subsection{Method \code{advance()}}{
+advance the `Ocean` one step.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$advance()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+the `Ocean` object.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Ocean-plot"></a>}}
 \if{latex}{\out{\hypertarget{method-Ocean-plot}{}}}
 \subsection{Method \code{plot()}}{
+plot the `Ocean`.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Ocean$plot()}\if{html}{\out{</div>}}
 }
 
+\subsection{Returns}{
+side effect
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Ocean-clone"></a>}}
