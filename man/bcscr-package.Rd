@@ -4,11 +4,8 @@
 \name{bcscr-package}
 \alias{bcscr-package}
 \alias{bcscr}
-\title{Beginning Computer Science with R}
+\title{bcscr}
 \description{
-bcscr
-}
-\details{
 Functions and datasets to accompany the text Beginning Computer Science with R
 }
 \references{
@@ -22,6 +19,9 @@ Useful links:
 
 }
 \author{
+\strong{Maintainer}: Homer White \email{homerhanumat@gmail.com}
+
+
 Homer White (\email{homerhanumat@gmail.com})
 }
 \keyword{internal}

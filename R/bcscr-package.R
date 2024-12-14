@@ -2,10 +2,10 @@
 #'
 #' Functions and datasets to accompany the text Beginning Computer Science with R
 #'
-#'
+"_PACKAGE"
 #' @name bcscr-package
-#' @docType package
 #' @aliases bcscr bcscr-package
+#'
 #' @title Beginning Computer Science with R
 #' @author Homer White (\email{homerhanumat@gmail.com})
 #' @references
@@ -19,6 +19,7 @@
 #' @importFrom stats dnorm sd qnorm
 #' @importFrom purrr map map_dfr
 #' @importFrom htmltools tagAppendAttributes
+#' @importFrom utils capture.output
 NULL
 
 ## quiets concerns of R CMD check kd and qq Explore apps:

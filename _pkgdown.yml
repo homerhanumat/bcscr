@@ -1,6 +1,7 @@
 title: Beginning Computer Science with R
 url: https://github.com/homerhanumat/bcscr
 template:
+  bootstrap: 5
   params:
     bootswatch: yeti
 reference:
@@ -34,8 +35,9 @@ reference:
       - NamePhone
       - railtrail
   - title:  "Misc"
-    desc:  "Functions used in other courses."
+    desc:  "Functions used in other courses, and helpers for the textbook."
     contents:
       - kdExplore
       - qqExplore
       - distExplore
+      - helpExtract
