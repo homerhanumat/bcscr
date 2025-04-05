@@ -52,23 +52,47 @@
 #'  if ( !is.null(seed) ) {
 #'    set.seed(seed)
 #'   }
-#'   ocean <- Ocean$new(dims = c(100, 100), males = males,
-#'                      females = females, starve = starve)
+#'   if (is.list(males)) {
+#'     processed_males <- vector(mode = "list", length = length(males))
+#'     for (i in seq_along(males)) {
+#'       processed_males[[i]] <- males[[i]]$clone()
+#'     }
+#'   } else {
+#'     processed_males <- males
+#'   }
+#'   if (is.list(females)) {
+#'     processed_females <- vector(mode = "list", length = length(females))
+#'     for (i in seq_along(females)) {
+#'       processed_females[[i]] <- females[[i]]$clone()
+#'     }
+#'   } else {
+#'     processed_females <- females
+#'   }
+#'
+#'   ocean <- Ocean$new(
+#'     dims = c(100, 100),
+#'     males = processed_males,
+#'     females = processed_females,
+#'     starve = starve
+#'    )
 #'   population <-numeric(steps)
-#'   for ( i in 1:steps ) {
+#'   for (i in 1:steps) {
 #'     population[i] <- ocean$malePop + ocean$femalePop
-#'     if ( animate ) ocean$plot()
-#'     if ( population[i] == 0 ) break
+#'     if (animate) ocean$plot()
+#'     if (population[i] == 0) break
 #'     ocean$advance()
-#'     if ( animate ) {
-#'         ocean$plot()
-#'         Sys.sleep(0.5)
-#'       }
+#'     if (animate) {
+#'       ocean$plot()
+#'       Sys.sleep(0.5)
+#'      }
 #'   }
 #'   pop <- population[1:i]
-#'   df <- data.frame(time = 1:length(pop),
-#'                   pop)
-#'   ggplot(df, aes(x = time, y = pop)) + geom_line() +
+#'   df <- data.frame(
+#'     time = 1:length(pop),
+#'     pop
+#'    )
+#'   ggplot(df, aes(x = time, y = pop)) +
+#'     geom_line() +
 #'     labs(x = "Time", y = "Whale Population")
 #' }
 #' oceanSim(males = initialMales, females = initialFemales, seed = 5050)
