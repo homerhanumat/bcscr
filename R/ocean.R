@@ -75,8 +75,20 @@ Ocean <- R6::R6Class("Ocean",
                        #' Create a new Ocean object.
                        #' @param dims numerical vector of length 2 giving
                        #' the dimensions of the ocean
-                       #' @param males initial number of males
-                       #' @param females initial number of females
+                       #' @param males either a numeric vector of length 1
+                       #' giving the initial number of male whales, or a
+                       #' list of R6 objects of class Male inheriting from
+                       #' Whale.  If the former, then the specified number
+                       #' of whales of class Male are instantiated, with
+                       #' certain default characteristics.  If the latter,
+                       #' then the given whales are cloned.
+                       #' @param females either a numeric vector of length 1
+                       #' giving the initial number of female whales, or a
+                       #' list of R6 objects of class Female inheriting from
+                       #' Whale.  If the former, then the specified number
+                       #' of whales of class Female are instantiated, with
+                       #' certain default characteristics.  If the latter,
+                       #' then the given whales are cloned.
                        #' @param starve the starvation parameter
                        #' @return A new `Ocean` object.
                        initialize = function(dims = c(100, 100),
@@ -87,6 +99,17 @@ Ocean <- R6::R6Class("Ocean",
                          xMax <- dims[1]
                          yMax <- dims[2]
                          if (mode(males) == "list") {
+                           ## validate whales:
+                           correct_class <- c("Male", "Whale", "R6")
+                           for (whale in males) {
+                             if (!identical(class(whale), correct_class)) {
+                               warning(
+                                 "Check your input! ",
+                                 "All male whales must be ",
+                                 "R6 objects of class Male.\n"
+                               )
+                             }
+                           }
                            maleWhales <- purrr::map(males, function(x) x$clone())
                            self$malePop <- length(males)
                          } else {
@@ -98,6 +121,17 @@ Ocean <- R6::R6Class("Ocean",
                            self$malePop <- males
                          }
                          if (mode(females) == "list") {
+                           ## validate whales:
+                           correct_class <- c("Female", "Whale", "R6")
+                           for (whale in females) {
+                             if (!identical(class(whale), correct_class)) {
+                               warning(
+                                 "Check your input! ",
+                                 "All female whales must be ",
+                                 "R6 objects of class Female.\n"
+                               )
+                             }
+                           }
                            femaleWhales <- purrr::map(females, function(x) x$clone())
                            self$femalePop <- length(females)
                          } else {

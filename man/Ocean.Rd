@@ -122,9 +122,21 @@ Create a new Ocean object.
 \item{\code{dims}}{numerical vector of length 2 giving
 the dimensions of the ocean}
 
-\item{\code{males}}{initial number of males}
+\item{\code{males}}{either a numeric vector of length 1
+giving the initial number of male whales, or a
+list of R6 objects of class Male inheriting from
+Whale.  If the former, then the specified number
+of whales of class Male are instantiated, with
+certain default characteristics.  If the latter,
+then the given whales are cloned.}
 
-\item{\code{females}}{initial number of females}
+\item{\code{females}}{either a numeric vector of length 1
+giving the initial number of female whales, or a
+list of R6 objects of class Female inheriting from
+Whale.  If the former, then the specified number
+of whales of class Female are instantiated, with
+certain default characteristics.  If the latter,
+then the given whales are cloned.}
 
 \item{\code{starve}}{the starvation parameter}
 }

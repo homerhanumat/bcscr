@@ -135,11 +135,23 @@ the dimensions of the ocean</p></dd>
 
 
 <dt><code>males</code></dt>
-<dd><p>initial number of males</p></dd>
+<dd><p>either a numeric vector of length 1
+giving the initial number of male whales, or a
+list of R6 objects of class Male inheriting from
+Whale.  If the former, then the specified number
+of whales of class Male are instantiated, with
+certain default characteristics.  If the latter,
+then the given whales are cloned.</p></dd>
 
 
 <dt><code>females</code></dt>
-<dd><p>initial number of females</p></dd>
+<dd><p>either a numeric vector of length 1
+giving the initial number of female whales, or a
+list of R6 objects of class Female inheriting from
+Whale.  If the former, then the specified number
+of whales of class Female are instantiated, with
+certain default characteristics.  If the latter,
+then the given whales are cloned.</p></dd>
 
 
 <dt><code>starve</code></dt>
