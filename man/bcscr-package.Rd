@@ -14,6 +14,7 @@ Functions and datasets to accompany the text Beginning Computer Science with R
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://homerhanumat.github.io/bcscr}
   \item \url{https://github.com/homerhanumat/bcscr}
 }
 

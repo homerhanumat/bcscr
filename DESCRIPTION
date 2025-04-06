@@ -24,7 +24,9 @@ License: GPL (>=3)
 Encoding: UTF-8
 NeedsCompilation: no
 LazyData: true
-URL: https://github.com/homerhanumat/bcscr
+URL: 
+    https://homerhanumat.github.io/bcscr, 
+    https://github.com/homerhanumat/bcscr
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 3.5)
