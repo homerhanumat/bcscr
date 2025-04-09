@@ -62,7 +62,6 @@
 #'   population <-numeric(steps)
 #'   for (i in 1:steps) {
 #'     population[i] <- ocean$malePop + ocean$femalePop
-#'     if (animate) ocean$plot()
 #'     if (population[i] == 0) break
 #'     ocean$advance()
 #'     if (animate) {
